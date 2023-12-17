@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TTS Chat</title>
+	<style>
+		/* Add your styles here */
+		#title {
+			text-align: center; /* Center the title text */
+			font-size: 128px; /* Large font size for the title */
+			color: #fff; /* White color for the title text */
+			margin-top: 20px; /* Space from the top of the page */
+			margin-bottom: 20px; /* Space between the title and the next content */
+		}
+		#chatbox {
+			position: fixed;
+			left: 50%;
+			bottom: 10%;
+			/* Move up from the bottom */
+			transform: translateX(-50%);
+			width: 300px;
+			/* Set a fixed width or as desired */
+			padding: 10px;
+			box-sizing: border-box;
+		}
+
+		#hearBackButton {
+			display: none;
+			/* Hide the button initially */
+		}
+
+
+		#avatar {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 300px;
+			/* Set the width to your desired size */
+			height: auto;
+			/* Set height to auto to maintain aspect ratio */
+		}
+
+		body {
+			background-image: url('../assets/courtyard.jpg');
+			background-size: cover;
+			/* Cover the entire page */
+			background-position: center %;
+			/* Center the image horizontally and vertically */
+			background-repeat: no-repeat;
+			/* Do not repeat the image */
+		}
+
+		@keyframes thinkingMovement {
+
+			0%,
+			100% {
+				transform: translate(-50%, -50%) translateY(0);
+			}
+
+			50% {
+				transform: translate(-50%, -50%) translateY(-20px);
+			}
+		}
+
+		.thinking {
+			animation: thinkingMovement 1s ease-in-out infinite;
+		}
+	</style>
+</head>
+
+<body>
+	<body>
+		<h1 id="title">SpruceAI</h1> <!-- Title at the top of the page -->
+		<!-- Rest of the body content -->
+	</body>
+	<img id="avatar" src="../assets/spruce1.PNG" alt="Person Image">
+	<div id="chatbox">
+		<input type="text" id="chatInput" placeholder="Say something...">
+		<button onclick="sendText()">Send</button>
+		<!-- New button to hear back from spruce.ai -->
+		<button id="hearBackButton" onclick="hearBack()">Hear Back from Spruce.ai</button>
+		<!-- Add an audio element to display the .wav file -->
+		<audio id="audioPlayback"></audio>
+	</div>
+
+	<script>
+		console.log('started')
+		var avatarInterval;
+
+		function hearBack() {
+			var audioElement = document.getElementById('audioPlayback');
+			if (audioElement.src) {
+				audioElement.play().catch(function (error) {
+					console.error('Playback failed:', error);
+				});
+				// Hide the button after playing
+				document.getElementById('hearBackButton').style.display = 'none';
+				cycleAvatarImages(); // Start cycling images when the audio is played
+			} else {
+				console.log('No audio to play. Please send a message first.');
+			}
+		}
+
+		function cycleAvatarImages() {
+			var avatarImages = ['../assets/spruce1.PNG', '../assets/spruce2.PNG', '../assets/spruce3.PNG', '../assets/spruce4.PNG'];
+			var currentImageIndex = 0;
+			avatarInterval = setInterval(function () {
+				document.getElementById('avatar').src = avatarImages[currentImageIndex];
+				currentImageIndex = (currentImageIndex + 1) % avatarImages.length;
+			}, 250); // Change image every 250ms or as desired
+		}
+
+		function stopCycleAvatarImages() {
+			clearInterval(avatarInterval);
+		}
+
+		function sendText() {
+			console.log('sendText function');
+			var text = document.getElementById('chatInput').value;
+			console.log('Text input:', text);
+
+			var apiUrl = 'http://ec2-18-234-90-112.compute-1.amazonaws.com:8080/tts';
+			console.log('API URL:', apiUrl);
+
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', apiUrl + '?text=' + encodeURIComponent(text), true);
+			xhr.responseType = 'blob';
+
+			document.getElementById('avatar').classList.add('thinking');
+
+			xhr.onload = function (e) {
+				if (this.status == 200) {
+					console.log('Request succeeded');
+					var blob = this.response;
+					var audioElement = document.getElementById('audioPlayback');
+					audioElement.src = URL.createObjectURL(blob);
+					// Show the button when the audio is ready
+					document.getElementById('hearBackButton').style.display = 'block';
+					audioElement.onended = function () {
+						// Hide the button when audio ends
+						document.getElementById('hearBackButton').style.display = 'none';
+						stopCycleAvatarImages(); // Stop cycling images when the audio ends
+					};
+					// Removed cycleAvatarImages() from here
+					document.getElementById('avatar').classList.remove('thinking');
+				} else {
+					console.log('Request failed with status:', this.status);
+				}
+			};
+
+			xhr.onerror = function () {
+				console.log('Request failed');
+				// Remove the thinking class if the request failed
+				document.getElementById('avatar').classList.remove('thinking');
+			};
+
+			xhr.send();
+			console.log('Request sent');
+		}
+	</script>
+</body>
+
+</html>
