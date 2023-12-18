@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>TTS Chat</title>
+	<title>SPRUCE AI</title>
 	<style>
 		/* Add your styles here */
 		#title {
@@ -129,7 +129,7 @@
 			var text = document.getElementById('chatInput').value;
 			console.log('Text input:', text);
 
-			var apiUrl = 'http://ec2-18-234-90-112.compute-1.amazonaws.com:8080/tts';
+			var apiUrl = 'https://api.willhath.com/tts';
 			console.log('API URL:', apiUrl);
 
 			var xhr = new XMLHttpRequest();
@@ -144,7 +144,7 @@
 					var blob = this.response;
 					var audioElement = document.getElementById('audioPlayback');
 					audioElement.src = URL.createObjectURL(blob);
-					// Show the button when the audio is ready
+					// Show the button when the audio is ready	
 					document.getElementById('hearBackButton').style.display = 'block';
 					audioElement.onended = function () {
 						// Hide the button when audio ends
