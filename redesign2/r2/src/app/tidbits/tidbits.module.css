@@ -1,0 +1,70 @@
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: var(--font-geist-sans), Arial, sans-serif;
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--foreground);
+}
+
+h4 {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--foreground);
+    font-family: var(--font-geist-mono), monospace;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--foreground);
+}
+
+a {
+    color: #3b82f6;  /* blue-500 */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #2563eb;  /* blue-600 */
+    text-decoration: underline;
+}
+
+/* Math equations */
+.MathJax {
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 1rem 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    a {
+        color: #60a5fa;  /* blue-400 */
+    }
+
+    a:hover {
+        color: #93c5fd;  /* blue-300 */
+    }
+}
