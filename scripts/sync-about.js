@@ -3,8 +3,8 @@ const path = require('path');
 const marked = require('marked');
 
 // Define paths
-const markdownPath = path.join("/Users/willhathaway/Library/Mobile Documents/iCloud~md~obsidian/Documents/My *Mac* Life/tidbits.md");
-const outputPath = path.join(__dirname, '..', 'src', 'app', 'tidbits', 'getContent.ts');
+const markdownPath = path.join("/Users/willhathaway/Library/Mobile Documents/iCloud~md~obsidian/Documents/My *Mac* Life/about.md");
+const outputPath = path.join(__dirname, '..', 'src', 'app', 'about', 'getContent.ts');
 
 // Read and convert markdown
 const markdownContent = fs.readFileSync(markdownPath, 'utf-8');
@@ -17,7 +17,7 @@ const escapedContent = htmlContent
 
 // Create the TypeScript content
 const tsContent = `
-export function getTidbitsContent() {
+export function getAboutContent() {
   return \`${escapedContent}\`;
 }
 `;
@@ -25,4 +25,4 @@ export function getTidbitsContent() {
 // Write the file
 fs.writeFileSync(outputPath, tsContent);
 
-console.log('Successfully updated tidbits content');
+console.log('Successfully updated about content');
