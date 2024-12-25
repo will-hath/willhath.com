@@ -44,7 +44,7 @@
   width: 40%;
   height: 14%;
   background-color: #ffffff;
-  transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(var(--rotation, 45deg));
 }
 
 .slot-container {

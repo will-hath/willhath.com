@@ -7,9 +7,19 @@ import { TVProps } from "@/types/types";
 // Create array of 31 images in /assets/gallery/0.jpg to /assets/gallery/30.jpg
 const images = Array.from({ length: 31 }, (_, index) => `/assets/gallery/${index}.jpg`);
 
+const hashString = (str: string): number => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash = hash & hash; // Convert to 32-bit integer
+  }
+  return hash;
+};
+
 const TV: React.FC<TVProps | null> = (props) => {
   // Has the reversed gif played already?
   const [hasPlayedReversed, setHasPlayedReversed] = useState(false);
+  const rotation = props?.name ? Math.abs(hashString(props.name) % 360) : 45;
 
   // Current random image index (if not using props.imageSource)
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
@@ -110,7 +120,7 @@ const TV: React.FC<TVProps | null> = (props) => {
       </div>
       <div className="instrument-panel">
         <div className="dial-container">
-          <div className="dial" />
+          <div className="dial" style={{ '--rotation': `${rotation}deg` } as React.CSSProperties}></div>
         </div>
         <div className="slot-container">
           <div className="slot" />
