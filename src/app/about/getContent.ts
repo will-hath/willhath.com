@@ -37,6 +37,8 @@ export function getAboutContent() {
 <h4>positions</h4>
 <ul>
 <li>I am not my mind</li>
+<li>aesthetic maximalist</li>
+<li>no one knows what they&#39;re talking about</li>
 <li>AI big</li>
 <li>AI soon</li>
 <li>extremes in moderation (a bimodal approach to life)</li>

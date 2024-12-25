@@ -1,4 +1,4 @@
-"use client"
+ "use client"
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import './TV.css';
@@ -16,7 +16,7 @@ const TV: React.FC<TVProps | null> = (props) => {
 
   useEffect(() => {
     // Only do this if no props.imageSource was given, meaning we rely on randomness
-    if (true) {
+    if (!props?.imageSource) {
       // Pick a random index after client hydration
       const initialRandomIndex = Math.floor(Math.random() * images.length);
       setCurrentImageIndex(initialRandomIndex);
@@ -44,7 +44,7 @@ const TV: React.FC<TVProps | null> = (props) => {
 
   const displayedImage = isStatic 
     ? '/assets/tv_static.gif'
-    : currentImageIndex === -1 ? 'assets/tv_reversed.gif'
+    // : currentImageIndex === -1 ? 'assets/tv_reversed.gif'
     : props?.imageSource || images[currentImageIndex];
 
     return (
@@ -61,11 +61,9 @@ const TV: React.FC<TVProps | null> = (props) => {
                 {/* The link will wrap the screen area if desired */}
               </Link>
             )}
-            <div className="tv-name-container">
             {props?.name && (
               <div className="tv-name-overlay">{props.name}</div>
               )}
-          </div>
           </div>
         </div>
         <div className="instrument-panel">

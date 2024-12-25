@@ -96,46 +96,36 @@
   height: calc(100% - 10px);
   display: flex;
   background-color: #bbbbbb;
-  align-items: center;
+  align-items: flex-end; /* Changed from center to flex-end to align to bottom */
   justify-content: center;
-  flex-direction: column;  /* Stack children vertically */
 }
 
 /* Ensuring the image fills the container */
 .tv-image {
   width: 100%;
-  height: calc(95% - 12px); /* Subtract some pixels from the top and bottom */
+  height: 100%;
   object-fit: cover;
   flex-shrink: 0;
-  border-radius: 30px;
-  outline: 3px solid #bbbbbb;
-  outline-offset: -3px; /* This moves the outline inward */
+  border-radius: 15%;
+  outline: 1px solid #ffffff;
+  outline-offset: -1px; /* This moves the outline inward */
   box-sizing: border-box;
-}
-
-.tv-name-container {
-  width: 100%;
-  height: 12%;
-  border-top: #ffffff 1px solid;
-  border-bottom: #ffffff 1px solid;
-  align-items: center;
 }
 
 .tv-name-overlay {
   z-index: 2;
-  color: rgb(233, 43, 43);
+  color: rgb(255, 255, 255);
   font-family: monospace;
   text-align: center;
-  background-color: #bbbbbb;
-  font-size: 1.9vh;
+  font-size: 2vh;
   background-color: #121212;
   width: fit-content; 
   line-height: 1;  /* Removes extra vertical space */
-
   /* Positioning */
   position: absolute;
   left: 50%;
   transform: translate(-50%);
+  bottom: 4%
 }
 
 .tv-link {

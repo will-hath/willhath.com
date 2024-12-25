@@ -1,11 +1,11 @@
 "use client"
-import Image from "next/image";
+import React from 'react';
 import { useEffect, useRef } from 'react';
 import TVGrid from '@/components/TVGrid/TVGrid';
 import './home.css';
 import { TVProps } from "@/types/types";
 import TV from '@/components/TV/TV';
-import Link from 'next/link';
+import Desk from '@/components/Desk/Desk';
 
 const Tidbits: TVProps = {
   imageSource: "/assets/chalkboard.jpg",
@@ -20,19 +20,31 @@ const Substack: TVProps = {
 }
 
 const Projects: TVProps = {
-  imageSource: "/assets/tv_static.gif",
+  imageSource: "/assets/comingsoon.png",
   name: "Projects",
   href: "/projects/"
 }
 
+const Bookshelf: TVProps = {
+  imageSource: "/assets/comingsoon.png",
+  name: "Bookshelf",
+  href: "/bookshelf/"
+}
+
+const Quotes: TVProps = {
+  imageSource: "/assets/comingsoon.png",
+  name: "Quotes",
+  href: "/quotes/"
+}
+
 const LeftGroundTV: TVProps = {
-  imageSource: "/assets/your-left-image.jpg",
+  imageSource: "/assets/spruce.gif",
   name: "Spruce",
   href: "https://spruce.world/"
 }
 
 const RightGroundTV: TVProps = {
-  imageSource: "/assets/your-right-image.jpg",
+  imageSource: "/assets/atticus.gif",
   name: "Atticus",
   href: "https://chry-santhemum.github.io/website/",
 }
@@ -41,7 +53,7 @@ export default function Home() {
   const mainContainerRef = useRef<HTMLElement>(null);
 
   const tvContents: (TVProps | null)[] = [
-    null, null, null, Substack, null, null, null,
+    null, null, Bookshelf, Substack, Quotes, null, null,
     null, null, null, Tidbits, null, null, null,
     null, null, Projects, null, null, null, null
   ];
@@ -67,6 +79,7 @@ export default function Home() {
             tvContents={tvContents} />
         </div>
         <div className="foreground">
+          <Desk></Desk>
           <div className="ground-tvs">
             <div className="ground-tv">
               <TV {...LeftGroundTV} />
@@ -80,13 +93,15 @@ export default function Home() {
             alt="Viewer"
             className="viewer-image"
           />
-          <a href="/about/" className="flex justify-center">
-            <img
-              src="/assets/nameplate.png"
-              alt="Nameplate"
-              className="nameplate"
-            />
-          </a>
+            <div className="nameplate-container">
+              <a href="/about/">
+                <img
+                  src="/assets/nameplate.png"
+                  alt="Nameplate"
+                  className="nameplate"
+                />
+              </a>
+            </div>
         </div>
       </div>
     </main>
