@@ -1,0 +1,22 @@
+.tv-grid {
+  display: grid;
+  gap: 1px;
+  height: 100%;
+  box-sizing: border-box;
+  grid-template-columns: repeat(7, auto);
+  grid-template-rows: repeat(3, 1fr);
+  width: fit-content;
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
