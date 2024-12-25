@@ -7,7 +7,7 @@ const geist = Geist({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Finding out',
-  description: 'If found, please return to William Owen Hathaway.',
+  description: 'If found, kindly return to William Owen Hathaway.',
 };
 
 export default function RootLayout({
