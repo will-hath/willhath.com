@@ -39,7 +39,7 @@ const TV: React.FC<TVProps | null> = (props) => {
 
       return () => clearInterval(interval);
     }
-  }, [props, images.length]);
+  }, [props]);
 
 
   const displayedImage = isStatic 

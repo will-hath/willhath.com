@@ -12,7 +12,7 @@ const Tidbits: TVProps = {
   name: "Tidbits",
   href: "/tidbits/"
 }
-// ssdfa
+
 const Substack: TVProps = {
   imageSource: "/assets/substack.png",
   name: "Substack",
