@@ -6,8 +6,8 @@ import './globals.css';
 const geist = Geist({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'My Personal Website',
-  description: 'Built with Next.js 13 App Router',
+  title: 'Finding out',
+  description: 'This website is the personal property of William Owen Hathaway.',
 };
 
 export default function RootLayout({
