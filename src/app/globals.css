@@ -65,4 +65,5 @@ p {
   line-height: 1.6;       /* Line height for better readability */
   font-size: 1rem;        /* Font size */
   max-width: 65ch;        /* Maximum width for optimal reading */
+  color: black;
 }
