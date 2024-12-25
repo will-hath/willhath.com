@@ -31,7 +31,7 @@ const TV: React.FC<TVProps | null> = (props) => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   /**
-   * Preload all relevant images (gallery, static, reversed).
+   * Preload all gallery images on mount
    */
   useEffect(() => {
     // Preload the gallery images
@@ -40,7 +40,7 @@ const TV: React.FC<TVProps | null> = (props) => {
       img.src = src;
     });
 
-    // Preload static and reversed GIFs
+    // Also preload static and reversed GIFs
     const staticImg = new Image();
     staticImg.src = "/assets/tv_static.gif";
     const reversedImg = new Image();
