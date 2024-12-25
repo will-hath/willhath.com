@@ -5,7 +5,7 @@ import TVGrid from '@/components/TVGrid/TVGrid';
 import './home.css';
 import { TVProps } from "@/types/types";
 import TV from '@/components/TV/TV';
-import Desk from '@/components/Desk/Desk';
+// import Desk from '@/components/Desk/Desk';
 
 const Tidbits: TVProps = {
   imageSource: "/assets/chalkboard.jpg",
@@ -79,7 +79,7 @@ export default function Home() {
             tvContents={tvContents} />
         </div>
         <div className="foreground">
-          <Desk></Desk>
+          {/* <Desk></Desk> */}
           <div className="ground-tvs">
             <div className="ground-tv">
               <TV {...LeftGroundTV} />
