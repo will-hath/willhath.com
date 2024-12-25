@@ -35,7 +35,7 @@ const TV: React.FC<TVProps | null> = (props) => {
           }
           return newIndex;
         });
-      }, Math.floor(Math.random() * 7000 + 3000));
+      }, Math.floor(Math.random() * 7000 + 300));
 
       return () => clearInterval(interval);
     }
