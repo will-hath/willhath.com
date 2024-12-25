@@ -1,4 +1,4 @@
-import './desk.css'
+import './Desk.css'
 import React from 'react';
 
 const Desk = () => {
