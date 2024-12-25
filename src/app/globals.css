@@ -67,3 +67,12 @@ p {
   max-width: 65ch;        /* Maximum width for optimal reading */
   color: black;
 }
+
+li {
+  line-height: 1.6;       /* Line height for better readability */
+  font-size: 1rem;        /* Font size */
+  max-width: 65ch;        /* Maximum width for optimal reading */
+  color: black;
+  list-style-type: square;  /* Adds bullet points */
+  margin-left: 1.5em;     /* Indentation for bullets */
+}
