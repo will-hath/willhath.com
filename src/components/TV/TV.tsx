@@ -14,7 +14,7 @@ const TV: React.FC<TVProps | null> = (props) => {
   const [isStatic, setIsStatic] = useState<boolean>(false);
 
 
-  useEffect(() => {
+  useEffect(() =>  {
     // Only do this if no props.imageSource was given, meaning we rely on randomness
     if (!props?.imageSource) {
       // Pick a random index after client hydration
