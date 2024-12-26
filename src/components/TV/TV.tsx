@@ -6,88 +6,88 @@ import Image from "next/image";
 import { TVProps } from "@/types/types";
 import AntennaBalls from "./AntennaBalls";
 import "./TV.css";
+// Create array of 31 images in /assets/gallery/0.jpg to /assets/gallery/30.jpg
+const images = Array.from({ length: 31 }, (_, index) => `/assets/gallery/${index}.jpg`);
 
-export default function TV(props: TVProps | null) {
-  // Track if we’ve fully mounted in the browser
-  const [hasMounted, setHasMounted] = useState(false);
+const hashString = (str: string): number => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash = hash & hash; // Convert to 32-bit integer
+  }
+  return hash;
+};
 
-  // Whether the reversed GIF has already played
+const TV: React.FC<TVProps | null> = (props) => {
+  // Has the reversed gif played already?
   const [hasPlayedReversed, setHasPlayedReversed] = useState(false);
+  const rotation = props?.name ? Math.abs(hashString(props.name) % 360) : 45;
 
-  // Keep track of which image from the gallery to display
+  // Current random image index (if not using props.imageSource)
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
-  // Is the TV currently displaying static? (during glitch intervals)
+  // Whether we're in the middle of showing "tv_static.gif"
   const [isStatic, setIsStatic] = useState<boolean>(false);
 
-  // Has our main random/designated image loaded yet?
-  const [isMainImageLoaded, setIsMainImageLoaded] = useState<boolean>(false);
-
-  // Store reference to a random‐switching interval
+  // A reference to our interval for random switching
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Our static GIF and reversed GIF
-  const staticGif = "/assets/new_static.gif";
-  const reversedGif = "/assets/tv_reversed.gif";
-
-  // Create array of 31 images in /assets/gallery/0.jpg to /assets/gallery/30.jpg
-  const galleryImages = Array.from({ length: 31 }, (_, idx) => `/assets/gallery/${idx}.jpg`);
-
-  // The final image is either provided via props, or chosen from the gallery
-  const finalImage = props?.imageSource || galleryImages[currentImageIndex];
-
-  // On first render, mark that we’re mounted (so code only runs client‐side)
+  /**
+   * 1) Always show tv_reversed.gif for 2.5 seconds.
+   * 2) After that, if there's NO imageSource prop, start random switching.
+   */
   useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
-  // Run after mounting: play reversed GIF once, then do random switching if there's no image prop
-  useEffect(() => {
-    if (!hasMounted) return;
-
-    // Show reversed for 1.7 seconds
+    // Show reversed GIF for 2.5 seconds
     const reversedTimeout = setTimeout(() => {
       setHasPlayedReversed(true);
 
+      // If no image prop is provided, begin random switching
       if (!props?.imageSource) {
-        // Pick a random index to start
-        setCurrentImageIndex(Math.floor(Math.random() * galleryImages.length));
-        setIsMainImageLoaded(false);
+        // Pick initial random image
+        const initialRandomIndex = Math.floor(Math.random() * images.length);
+        setCurrentImageIndex(initialRandomIndex);
 
-        // Begin random switching every 3–10 seconds
+        // Start the random image switching interval
         intervalRef.current = setInterval(() => {
+          // Trigger static for ~300ms
           setIsStatic(true);
-          setTimeout(() => setIsStatic(false), 300);
+          setTimeout(() => {
+            setIsStatic(false);
+          }, 300);
 
-          setIsMainImageLoaded(false);
           setCurrentImageIndex((prevIndex) => {
-            let newIndex = Math.floor(Math.random() * galleryImages.length);
-            while (galleryImages.length > 1 && newIndex === prevIndex) {
-              newIndex = Math.floor(Math.random() * galleryImages.length);
+            let newIndex = Math.floor(Math.random() * images.length);
+            while (images.length > 1 && newIndex === prevIndex) {
+              newIndex = Math.floor(Math.random() * images.length);
             }
             return newIndex;
           });
-        }, Math.random() * 7000 + 3000);
+        }, Math.floor(Math.random() * 7000 + 3000)); // between 3–10 seconds
       }
     }, 1700);
 
+    // Cleanup on unmount
     return () => {
       clearTimeout(reversedTimeout);
-      if (intervalRef.current) clearInterval(intervalRef.current);
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
     };
-  }, [hasMounted, props?.imageSource, galleryImages]);
+  }, [props]);
 
-  // Decide which image/gif to display
+  /**
+   * Decide which image/gif should be displayed at the moment.
+   */
   const displayedImage = !hasPlayedReversed
-    ? reversedGif
-    : isStatic || !isMainImageLoaded
-    ? staticGif
-    : finalImage;
-
+    ? "/assets/tv_reversed.gif"   // Always start with reversed until 2.5s passes
+    : isStatic
+    ? "/assets/new_static.gif"     // Show static if we are in a “static” glitch
+    : props?.imageSource || images[currentImageIndex];
   return (
     <>
       <Head>
         <title>TV Component</title>
+        {/* Preload static, reversed, etc. if desired */}
       </Head>
       <div className={`tv-container ${props?.hasAntennas ? "has-antennas" : ""}`}>
         {props?.hasAntennas && <AntennaBalls />}
@@ -99,7 +99,15 @@ export default function TV(props: TVProps | null) {
               className="tv-image"
               fill
               sizes="(max-width: 800px) 100vw, 800px"
-              onLoadingComplete={() => setIsMainImageLoaded(true)}
+              onLoadingComplete={() => {
+                /*
+                  Once the image has fully loaded, wait 300ms before turning off static.
+                  This guarantees you see the static image displayed for at least 300ms.
+                */
+                setTimeout(() => {
+                  setIsStatic(false);
+                }, 300);
+              }}
             />
             {props?.href && (
               <Link href={props.href} className="tv-link">
@@ -122,3 +130,5 @@ export default function TV(props: TVProps | null) {
     </>
   );
 }
+
+export default TV;
