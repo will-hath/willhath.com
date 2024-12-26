@@ -6,6 +6,7 @@ import './home.css';
 import { TVProps } from "@/types/types";
 import TV from '@/components/TV/TV';
 import Desk from '@/components/Desk/Desk';
+import Image from 'next/image';
 
 const Tidbits: TVProps = {
   imageSource: "/assets/chalkboard.jpg",
@@ -40,13 +41,15 @@ const Quotes: TVProps = {
 const LeftGroundTV: TVProps = {
   imageSource: "/assets/spruce.gif",
   name: "Spruce",
-  href: "https://spruce.world/"
+  href: "https://spruce.world/",
+  hasAntennas: true
 }
 
 const RightGroundTV: TVProps = {
   imageSource: "/assets/atticus.gif",
   name: "Atticus",
   href: "https://chry-santhemum.github.io/website/",
+  hasAntennas: true
 }
 
 export default function Home() {
@@ -88,17 +91,23 @@ export default function Home() {
               <TV {...RightGroundTV} />
             </div>
           </div>
-          <img 
+          <Image 
             src="/assets/man_from_behind.png"
             alt="Viewer"
             className="viewer-image"
+            width={500}
+            height={800}
+            priority
           />
             <div className="nameplate-container">
               <a href="/about/">
-                <img
+                <Image
                   src="/assets/nameplate.png"
                   alt="Nameplate"
                   className="nameplate"
+                  width={300}
+                  height={60}
+                  priority
                 />
               </a>
             </div>

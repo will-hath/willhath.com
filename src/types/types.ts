@@ -2,6 +2,7 @@ export interface TVProps {
   imageSource?: string;
   name?: string;
   href?: string;
+  hasAntennas?: boolean;
 } 
 
 export interface TVGridProps {

@@ -1,21 +1,28 @@
+:root {
+  /* Base colors */
+  --color-primary: #121212;     /* Main dark background */
+  --color-secondary: #bbbbbb;   /* Light gray elements */
+  --color-accent: rgb(211, 179, 0);
+}
+
 .tv-container {
   height: calc((70vh) / 3); 
   aspect-ratio: 4 / 3;
-  background-color: #121212;
-  border: 2px solid #ffffff;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-accent);
   border-radius: 2px;
   padding: 4%;
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
-  gap: 5px; /* Added gap to create buffer between instrument-panel and tv-frame */
+  gap: 5px;
 }
 
 .instrument-panel {
   width: 20%;
-  border: 2px solid #ffffff;
+  border: 2px solid var(--color-accent);
   border-radius: 2px;
-  background-color: #121212;
+  background-color: var(--color-primary);
   display: flex;
   flex-direction: column;
   padding: 2%;
@@ -23,7 +30,7 @@
 }
 
 .dial-container {
-  background-color: #bbbbbb;
+  background-color: var(--color-secondary);
   padding: 9%;
   border-radius: 2px;
 }
@@ -31,7 +38,7 @@
 .dial {
   width: 100%;
   aspect-ratio: 1;
-  background-color: #121212;
+  background-color: var(--color-primary);
   border-radius: 50%;
   position: relative;
 }
@@ -43,12 +50,12 @@
   left: 50%;
   width: 40%;
   height: 14%;
-  background-color: #ffffff;
+  background-color: var(--color-accent);
   transform: translate(-50%, -50%) rotate(var(--rotation, 45deg));
 }
 
 .slot-container {
-  background-color: #bbbbbb;
+  background-color: var(--color-secondary);
   padding: 20%;
   height: 18%;
   border-radius: 2px;
@@ -58,7 +65,7 @@
 .slot {
   width: 100%;
   height: 100%;
-  background-color: #121212;
+  background-color: var(--color-primary);
   margin: 0 auto;
   border-radius: 2px;
 }
@@ -68,59 +75,55 @@
   height: 60%;
   background: repeating-linear-gradient(
     180deg,
-    #121212,
-    #121212 5%,
-    #bbbbbb 5%,
-    #bbbbbb 10%
+    var(--color-primary),
+    var(--color-primary) 5%,
+    var(--color-secondary) 5%,
+    var(--color-secondary) 10%
   );
 }
 
-/* Container for the screen */
 .tv-frame {
   width: 80%; 
   display: flex;
-  background-color: #121212;
-  border: 2px solid #ffffff;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-accent);
   overflow: hidden;
   justify-content: center;
   align-items: center;
-  aspect-ratio: 4 / 3; /* Ensure the container has a strict ratio */
+  aspect-ratio: 4 / 3;
   border-radius: 2px;
-
 }
 
-/* .tv-screen can help ensure the image's parent is sized correctly */
 .tv-screen {
   position: relative;
-  width: calc(100% - 10px); /* Subtract some pixels from all sides */
+  width: calc(100% - 10px);
   height: calc(100% - 10px);
   display: flex;
-  background-color: #bbbbbb;
-  align-items: flex-end; /* Changed from center to flex-end to align to bottom */
+  background-color: var(--color-secondary);
+  align-items: flex-end;
   justify-content: center;
 }
 
-/* Ensuring the image fills the container */
 .tv-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   flex-shrink: 0;
   border-radius: 15%;
-  outline: 1px solid #ffffff;
-  outline-offset: -1px; /* This moves the outline inward */
+  outline: 1px solid var(--color-accent);
+  outline-offset: -1px;
   box-sizing: border-box;
 }
 
 .tv-name-overlay {
   z-index: 2;
-  color: rgb(255, 255, 255);
+  color: var(--foreground);
   font-family: monospace;
   text-align: center;
-  font-size: max(20px, 2vh);  /* Will never go smaller than 12px */  background-color: #121212;
+  font-size: 2vh;
+  background-color: var(--color-primary);
   width: fit-content; 
-  line-height: 1;  /* Removes extra vertical space */
-  /* Positioning */
+  line-height: 1;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
@@ -131,6 +134,38 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 3;
+  z-index: 5;
   border-radius: 30px;
+}
+
+/* The vertical line that extends from the TV to the ball. */
+.antenna-line {
+  position: absolute;
+  bottom: 99%;       
+  width: 2px;
+  height: 90px;     /* Adjust the length as desired */
+  background-color: var(--color-accent);
+}
+
+/* Add new styling for antenna balls and lines. */
+.antenna-ball {
+  position: absolute;
+  top: 0%;
+  width: 10px; 
+  height: 10px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  transform-origin: bottom;
+  transform: translateX(-40%);
+}
+
+/* We'll define two separate classes for left and right placement. */
+.left-antenna {
+  left: 45%;
+  transform: rotate(-15deg);
+}
+
+.right-antenna {
+  right: 45%;
+  transform: rotate(15deg);
 }
