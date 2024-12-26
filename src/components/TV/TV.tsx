@@ -1,116 +1,83 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
-import "./TV.css";
 import { TVProps } from "@/types/types";
 import AntennaBalls from "./AntennaBalls";
+import "./TV.css";
 
-// Create array of 31 images in /assets/gallery/0.jpg to /assets/gallery/30.jpg
-const galleryImages = Array.from({ length: 31 }, (_, index) => `/assets/gallery/${index}.jpg`);
+export default function TV(props: TVProps | null) {
+  // Track if we’ve fully mounted in the browser
+  const [hasMounted, setHasMounted] = useState(false);
 
-const TV: React.FC<TVProps | null> = (props) => {
-  // Has the reversed gif played already?
+  // Whether the reversed GIF has already played
   const [hasPlayedReversed, setHasPlayedReversed] = useState(false);
 
-  // Current random image index (if not using props.imageSource)
+  // Keep track of which image from the gallery to display
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
-  // Whether we're in the middle of showing "tv_static.gif" due to “glitch” intervals
+  // Is the TV currently displaying static? (during glitch intervals)
   const [isStatic, setIsStatic] = useState<boolean>(false);
 
-  // Whether the final image (designated or random) has finished loading
+  // Has our main random/designated image loaded yet?
   const [isMainImageLoaded, setIsMainImageLoaded] = useState<boolean>(false);
 
-  // A reference to our interval for random switching
+  // Store reference to a random‐switching interval
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Helper sources
+  // Our static GIF and reversed GIF
   const staticGif = "/assets/new_static.gif";
   const reversedGif = "/assets/tv_reversed.gif";
 
-  // We’ll store the main (designated or random) image path here
+  // Create array of 31 images in /assets/gallery/0.jpg to /assets/gallery/30.jpg
+  const galleryImages = Array.from({ length: 31 }, (_, idx) => `/assets/gallery/${idx}.jpg`);
+
+  // The final image is either provided via props, or chosen from the gallery
   const finalImage = props?.imageSource || galleryImages[currentImageIndex];
 
-  /**
-   * Preload all relevant images and GIFs — including gallery images.
-   * This approach uses <Head> to insert <link rel="preload"> for each image.
-   * You could also do this differently if you prefer.
-   */
+  // On first render, mark that we’re mounted (so code only runs client‐side)
   useEffect(() => {
-    // Preload all gallery images
-    // (For large images, you might not want to eagerly load every single one; this is just an example.)
-    galleryImages.forEach((src) => {
-      const link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "image";
-      link.href = src;
-      document.head.appendChild(link);
-    });
-
-    // Preload tv_static.gif and tv_reversed.gif
-    [staticGif, reversedGif].forEach((gif) => {
-      const link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "image";
-      link.href = gif;
-      document.head.appendChild(link);
-    });
+    setHasMounted(true);
   }, []);
 
-  /**
-   * 1) Show tv_reversed.gif for 1.7 seconds to block initial rendering of final image.
-   * 2) If there's NO imageSource prop, begin random switching once reversed is done.
-   */
+  // Run after mounting: play reversed GIF once, then do random switching if there's no image prop
   useEffect(() => {
+    if (!hasMounted) return;
+
+    // Show reversed for 1.7 seconds
     const reversedTimeout = setTimeout(() => {
       setHasPlayedReversed(true);
 
-      // If no prop is provided, begin random switching
       if (!props?.imageSource) {
-        // Pick initial random image
-        const initialRandomIndex = Math.floor(Math.random() * galleryImages.length);
-        setCurrentImageIndex(initialRandomIndex);
-        // We want to show static until the random image is loaded
+        // Pick a random index to start
+        setCurrentImageIndex(Math.floor(Math.random() * galleryImages.length));
         setIsMainImageLoaded(false);
 
-        // Start random switching
+        // Begin random switching every 3–10 seconds
         intervalRef.current = setInterval(() => {
           setIsStatic(true);
-          setTimeout(() => {
-            setIsStatic(false);
-          }, 300);
+          setTimeout(() => setIsStatic(false), 300);
 
-          setIsMainImageLoaded(false); // We'll wait again for the newly chosen image to load
-          setCurrentImageIndex((previousIndex) => {
+          setIsMainImageLoaded(false);
+          setCurrentImageIndex((prevIndex) => {
             let newIndex = Math.floor(Math.random() * galleryImages.length);
-            while (galleryImages.length > 1 && newIndex === previousIndex) {
+            while (galleryImages.length > 1 && newIndex === prevIndex) {
               newIndex = Math.floor(Math.random() * galleryImages.length);
             }
             return newIndex;
           });
-        }, Math.floor(Math.random() * 7000 + 3000)); // between 3–10 seconds
-      } else {
-        // If we do have a designated image, set up the load state for it.
-        setIsMainImageLoaded(false);
+        }, Math.random() * 7000 + 3000);
       }
-    }, 1500);
+    }, 1700);
 
     return () => {
       clearTimeout(reversedTimeout);
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
+      if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [props]);
+  }, [hasMounted, props?.imageSource, galleryImages]);
 
-  /**
-   * Decide which image/gif to display:
-   * 1) If tv_reversed.gif is still playing, show that.
-   * 2) Else if isStatic is true (our random glitch timing), or the designated/random image is not yet loaded, show tv_static.gif.
-   * 3) Otherwise show the designated or random image.
-   */
+  // Decide which image/gif to display
   const displayedImage = !hasPlayedReversed
     ? reversedGif
     : isStatic || !isMainImageLoaded
@@ -119,11 +86,10 @@ const TV: React.FC<TVProps | null> = (props) => {
 
   return (
     <>
-      {/* Preload tags inserted here via useEffect, but you could also place them directly in Head if desired */}
       <Head>
         <title>TV Component</title>
       </Head>
-      <div className={`tv-container ${props?.hasAntennas ? 'has-antennas' : ''}`}>
+      <div className={`tv-container ${props?.hasAntennas ? "has-antennas" : ""}`}>
         {props?.hasAntennas && <AntennaBalls />}
         <div className="tv-frame">
           <div className="tv-screen">
@@ -133,14 +99,11 @@ const TV: React.FC<TVProps | null> = (props) => {
               className="tv-image"
               fill
               sizes="(max-width: 800px) 100vw, 800px"
-              onLoadingComplete={() => {
-                // Once the image fully loads, we mark it as loaded
-                setIsMainImageLoaded(true);
-              }}
+              onLoadingComplete={() => setIsMainImageLoaded(true)}
             />
             {props?.href && (
               <Link href={props.href} className="tv-link">
-                {/* The link will wrap the screen area if desired */}
+                {/* Clickable link over the TV screen */}
               </Link>
             )}
             {props?.name && <div className="tv-name-overlay">{props.name}</div>}
@@ -158,6 +121,4 @@ const TV: React.FC<TVProps | null> = (props) => {
       </div>
     </>
   );
-};
-
-export default TV;
+}
