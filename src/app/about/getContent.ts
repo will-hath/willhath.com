@@ -19,8 +19,8 @@ export function getAboutContent() {
 <ul>
 <li>long distance (&gt;= 26.2 ) running</li>
 <li>mountaineering</li>
-<li>US interstate system</li>
 <li>russian Literature</li>
+<li>US interstate system</li>
 <li>motorcycles</li>
 <li>national parks</li>
 <li>blogging</li>
