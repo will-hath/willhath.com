@@ -13,7 +13,7 @@ export function getAboutContent() {
 </ul>
 <h4>now</h4>
 <ul>
-<li>on indefinite leave from MIT to work on custom model finetuning at OpenAI</li>
+<li>on indefinite leave from MIT to work at OpenAI</li>
 </ul>
 <h4>smalltalk</h4>
 <ul>
