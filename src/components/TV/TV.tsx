@@ -95,7 +95,7 @@ const TV: React.FC<TVProps | null> = (props) => {
         // If we do have a designated image, set up the load state for it.
         setIsMainImageLoaded(false);
       }
-    }, 1700);
+    }, 1500);
 
     return () => {
       clearTimeout(reversedTimeout);
