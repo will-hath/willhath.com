@@ -18,6 +18,7 @@ export function getAboutContent() {
 <h4>smalltalk</h4>
 <ul>
 <li>long distance (&gt;= 26.2 ) running</li>
+<li>mountaineering</li>
 <li>russian Literature</li>
 <li>US interstate system</li>
 <li>motorcycles</li>
