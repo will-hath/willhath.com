@@ -56,15 +56,42 @@
 
 .ground-tvs {
   position: absolute;
-  bottom: 2vh;
+  bottom: 70%;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 24.5%;
+  padding: 0 27%;
   z-index: 3;
 }
 
 .ground-tv {
-  transform: scale(0.7);  /* Adjust this value to get the desired size */
+  transform: scale(0.5);
   transform-origin: bottom center;
+  position: relative;
+}
+
+/* Left antenna */
+.ground-tv::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 48%;
+  width: 4px;
+  height: 50%;
+  background: #c5c4c4;
+  transform: rotate(-15deg);
+  transform-origin: bottom;
+}
+
+/* Right antenna */
+.ground-tv::after {
+  content: '';
+  position: absolute;
+  top: -49%;
+  right: 48%;
+  width: 4px;
+  height: 49%;
+  background: #c5c4c4;
+  transform: rotate(15deg);
+  transform-origin: bottom;
 }

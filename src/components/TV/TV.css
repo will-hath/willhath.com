@@ -117,8 +117,7 @@
   color: rgb(255, 255, 255);
   font-family: monospace;
   text-align: center;
-  font-size: 2vh;
-  background-color: #121212;
+  font-size: max(20px, 2vh);  /* Will never go smaller than 12px */  background-color: #121212;
   width: fit-content; 
   line-height: 1;  /* Removes extra vertical space */
   /* Positioning */
