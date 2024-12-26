@@ -88,7 +88,6 @@ export default function TV(props: TVProps | null) {
     <>
       <Head>
         <title>TV Component</title>
-        <img src={staticGif} style={{ display: 'none' }} alt="" />
       </Head>
       <div className={`tv-container ${props?.hasAntennas ? "has-antennas" : ""}`}>
         {props?.hasAntennas && <AntennaBalls />}

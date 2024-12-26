@@ -74,6 +74,7 @@ export default function Home() {
 
   return (
     <main className="main-container" ref={mainContainerRef}>
+      <img src={'/assets/new_static.gif'} style={{ display: 'none' }} alt="" />
       <div className="content-wrapper">
         <div className="grid-container">
           <TVGrid 
