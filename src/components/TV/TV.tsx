@@ -62,7 +62,9 @@ const TV: React.FC<TVProps | null> = (props) => {
             sizes="(max-width: 800px) 100vw, 800px"
             priority={true}
             onLoadingComplete={() => {
-              setIsInitialLoad(false);
+              setTimeout(() => {
+                setIsInitialLoad(false);
+              } , 1500);
             }}
           />
           
