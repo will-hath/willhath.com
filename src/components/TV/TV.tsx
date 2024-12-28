@@ -1,13 +1,11 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
-import Head from "next/head";
 import Image from "next/image";
 import "./TV.css";
-import { TVGridProps, TVProps } from "@/types/types";
+import { TVProps } from "@/types/types";
 import AntennaBalls from "./AntennaBalls";
 
-// Create array of 31 images in /assets/gallery/0.jpg to /assets/gallery/30.jpg
 const photoGallery = Array.from({ length: 31 }, (_, index) => `/assets/gallery/${index}.jpg`);
 const turnOnGif = "/assets/tv_turn_on_HD.gif";
 const staticGif = "/assets/tv_static.gif";
@@ -15,22 +13,19 @@ const testImage = "/assets/gallery/0.jpg";
 
 const TV: React.FC<TVProps | null> = (props) => {
   const [isInitialLoad, setIsInitialLoad] = useState(true);
-  const [currentImage, setCurrentImage] = useState(testImage);
+  const [currentImage, setCurrentImage] = useState<string>(testImage);
   const [isVisible, setIsVisible] = useState(true);
   const [dialRotation, setDialRotation] = useState(45);
 
-  var images: string[] = []
-  if (!props?.imageSources) {
-    images = photoGallery
-  } else {
-    images = props.imageSources
-  }
-  // Set initial random image
+  const images = useMemo(() => {
+    return props?.imageSources ?? photoGallery;
+  }, [props?.imageSources]);
+
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * images.length);
     setCurrentImage(images[randomIndex]);
     setDialRotation(Math.floor(Math.random() * 90) - 45);
-  }, []);
+  }, [images]);
 
   useEffect(() => {
     if (!isInitialLoad && images.length > 1) {
@@ -38,18 +33,17 @@ const TV: React.FC<TVProps | null> = (props) => {
         setDialRotation(Math.floor(Math.random() * 90) - 45);
         setIsVisible(false);
         setTimeout(() => {
-            setCurrentImage((prevImage) => {
-              // Get random index that's different from current
-              let nextIndex;
-              do {
-                nextIndex = Math.floor(Math.random() * images.length);
-              } while (nextIndex === images.indexOf(prevImage) && images.length > 1);
-              return images[nextIndex];
-            });
-            setIsVisible(true);
-          }, 300);
+          setCurrentImage((prevImage) => {
+            let nextIndex;
+            do {
+              nextIndex = Math.floor(Math.random() * images.length);
+            } while (nextIndex === images.indexOf(prevImage) && images.length > 1);
+            return images[nextIndex];
+          });
+          setIsVisible(true);
+        }, 300);
+      }, Math.floor(Math.random() * 8000 + 3000));
       
-      }, Math.floor(Math.random() * 8000 + 3000)); 
       return () => clearInterval(interval);
     }
   }, [isInitialLoad, images]);
