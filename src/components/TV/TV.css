@@ -161,11 +161,11 @@
 
 /* We'll define two separate classes for left and right placement. */
 .left-antenna {
-  left: 45%;
+  left: 45.5%;
   transform: rotate(-15deg);
 }
 
 .right-antenna {
-  right: 45%;
+  right: 45.5%;
   transform: rotate(15deg);
 }

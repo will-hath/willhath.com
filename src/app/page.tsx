@@ -9,48 +9,49 @@ import Desk from '@/components/Desk/Desk';
 import Image from 'next/image';
 
 const Tidbits: TVProps = {
-  imageSource: "/assets/chalkboard.jpg",
+  imageSources: ["/assets/chalkboard.jpg"],
   name: "Tidbits",
   href: "/tidbits/"
 }
-// sdf
+
 const Substack: TVProps = {
-  imageSource: "/assets/substack.png",
+  imageSources: ["/assets/substack.png"],
   name: "Substack",
   href: "https://willhath.substack.com"
 }
 
 const Projects: TVProps = {
-  imageSource: "/assets/comingsoon.png",
+  imageSources: ["/assets/comingsoon.png"],
   name: "Projects",
   href: "/projects/"
 }
 
 const Bookshelf: TVProps = {
-  imageSource: "/assets/comingsoon.png",
+  imageSources: ["/assets/comingsoon.png"],
   name: "Bookshelf",
   href: "/bookshelf/"
 }
 
 const Quotes: TVProps = {
-  imageSource: "/assets/comingsoon.png",
+  imageSources: ["/assets/comingsoon.png"],
   name: "Quotes",
   href: "/quotes/"
 }
 
 const LeftGroundTV: TVProps = {
-  imageSource: "/assets/spruce.gif",
+  imageSources: ["/assets/spruce.gif"],
   name: "Spruce",
   href: "https://spruce.world/",
   hasAntennas: true
 }
 
 const RightGroundTV: TVProps = {
-  imageSource: "/assets/atticus.gif",
+  imageSources: ["/assets/atticus.gif"],
   name: "Atticus",
   href: "https://chry-santhemum.github.io/website/",
   hasAntennas: true
 }
+
 
 export default function Home() {
   const mainContainerRef = useRef<HTMLElement>(null);
