@@ -1,10 +1,9 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
-import Head from "next/head";
 import Image from "next/image";
 import "./TV.css";
-import { TVGridProps, TVProps } from "@/types/types";
+import { TVProps } from "@/types/types";
 import AntennaBalls from "./AntennaBalls";
 
 // Create array of 31 images in /assets/gallery/0.jpg to /assets/gallery/30.jpg
@@ -15,22 +14,20 @@ const testImage = "/assets/gallery/0.jpg";
 
 const TV: React.FC<TVProps | null> = (props) => {
   const [isInitialLoad, setIsInitialLoad] = useState(true);
-  const [currentImage, setCurrentImage] = useState(testImage);
+  const [currentImage, setCurrentImage] = useState<string>(testImage);
   const [isVisible, setIsVisible] = useState(true);
   const [dialRotation, setDialRotation] = useState(45);
 
-  var images: string[] = []
-  if (!props?.imageSources) {
-    images = photoGallery
-  } else {
-    images = props.imageSources
-  }
+  const images = useMemo(() => {
+    return !props?.imageSources ? photoGallery : props.imageSources;
+  }, [props?.imageSources]);
+
   // Set initial random image
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * images.length);
     setCurrentImage(images[randomIndex]);
     setDialRotation(Math.floor(Math.random() * 90) - 45);
-  }, []);
+  }, [images]);
 
   useEffect(() => {
     if (!isInitialLoad && images.length > 1) {
