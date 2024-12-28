@@ -1,5 +1,6 @@
 export interface TVProps {
   imageSources?: string[];
+  textSources?: string[];
   name?: string;
   href?: string;
   hasAntennas?: boolean;

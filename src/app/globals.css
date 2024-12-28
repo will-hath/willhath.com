@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #84a38c;
+  --background: #a74780;
   --foreground: #ffffff;
 }
 
@@ -34,7 +34,7 @@
 body {
   color: var(--background);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Oswald", Times, serif;  /* Changed from Helvetica */
 }
 
 h1 {
