@@ -9,7 +9,7 @@ export function getTidbitsContent() {
 <h4>Thursday, Dec 19</h4>
 <p>The non-profit that runs Signal is so blind to user data that they don&#39;t even know <em>how many users they have</em>.</p>
 <h4>Wednesday, Nov 13, 2024</h4>
-<p>Annapurna, despite being the mountain with the most dangerous mountain in the Himalayas (1 death for every three summits)</p>
+<p>Annapurna, despite being the mountain with the most dangerous 8km peak (one death for every three summits), was the first to be summited (in 1950).</p>
 <h4>Sunday, Nov 10, 2024</h4>
 <p>Pathao, a Nepalese ride-sharing app, doesn&#39;t even try and algorithmically generate a ride fee. Instead, it&#39;s a fully free market, with riders proposing a payment for a ride, and drivers being free to accept any bids. This was likely just done because it&#39;s easier to implement, but an interesting benefit is that Pathao avoids negative PR from accusations of &quot;price gauging&quot; during peak times.</p>
 <h4>Thursday, Nov 7, 2024</h4>
