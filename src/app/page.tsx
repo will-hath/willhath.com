@@ -98,8 +98,8 @@ export default function Home() {
   const mainContainerRef = useRef<HTMLElement>(null);
 
   const tvContents: (TVProps | null)[] = [
-    null, null, Bookshelf, Substack, Quotes, null, null,
-    null, null, null, Tidbits, null, null, null,
+    null, null, null, Substack, Quotes, null, null,
+    null, null, Tidbits, null, Bookshelf, null, null,
     null, null, Projects, null, null, null, null
   ];
 
