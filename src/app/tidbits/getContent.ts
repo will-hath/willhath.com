@@ -1,7 +1,7 @@
 
 export function getTidbitsContent() {
   return `<h4>Thursday, Dec 26, 2024</h4>
-<p>Next JS&#39;s Image module gives you the ability to specify how your image will effect the way the page loads the first time someone opens it. </p>
+<p>Next JS&#39;s Image module gives you the ability to specify how your image will effect the way the page loads the first time someone opens it. Adding the &quot;priority&quot; tag blocks the page from rendering until that image has fully loaded, and </p>
 <h4>Monday, Dec 23, 2024</h4>
 <p>The original DTP (Diptheria, Tetanus, Pertussis) vaccine, was considered too dangerous for use in the USA in the late 1980s due to neurological side-effects, and was replaced by DTaP, which uses acellular components of Pertussis, rather than whole-cell. However, DTP is still widely used in developing countries. </p>
 <h4>Sunday, Dec 22, 2024</h4>
