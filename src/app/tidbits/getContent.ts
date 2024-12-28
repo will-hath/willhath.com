@@ -8,6 +8,8 @@ export function getTidbitsContent() {
 <p>Jensen Huang went to Oregon State University. </p>
 <h4>Thursday, Dec 19</h4>
 <p>The non-profit that runs Signal is so blind to user data that they don&#39;t even know <em>how many users they have</em>.</p>
+<h4>Wednesday, Nov 13, 2024</h4>
+<p>Annapurna, despite being the mountain with th</p>
 <h4>Sunday, Nov 10, 2024</h4>
 <p>Pathao, a Nepalese ride-sharing app, doesn&#39;t even try and algorithmically generate a ride fee. Instead, it&#39;s a fully free market, with riders proposing a payment for a ride, and drivers being free to accept any bids. This was likely just done because it&#39;s easier to implement, but an interesting benefit is that Pathao avoids negative PR from accusations of &quot;price gauging&quot; during peak times.</p>
 <h4>Thursday, Nov 7, 2024</h4>
@@ -70,7 +72,7 @@ $$</p>
 <h4>Tuesday, Jan 9, 2024</h4>
 <p>There are two styles of cross country skiing. There’s “Classic”, where you mostly keep your skis parallel to each other, and mainly use your arms. Then there’s ”Skating”, where you point your toes outwards and drive yourself forwards by pushing your legs outwards. Classic is more intuitive, but generally requires better packed/more consistent snow.</p>
 <h4>Monday, Jan 8, 2024</h4>
-<p>Apparently Oxford has a secret “night climbers” club where people climb the walls + towers + roofs around Oxford. It seems to have a bigger focus on athleticism.</p>
+<p>Apparently Oxford has a secret “night climbers” club where people climb the walls + towers + roofs around Oxford. It seems to have a bigger focus on athleticism than MIT&#39;s.</p>
 <h4>Sunday, Jan 7, 2024</h4>
 <p>The Estonian flag looks like the average landscape in Estonia: White snow, black trees, blue sky. Look it up, you’ll see what I mean!</p>
 <h4>Saturday, Jan 6, 2024</h4>
