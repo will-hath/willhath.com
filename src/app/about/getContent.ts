@@ -10,6 +10,7 @@ export function getAboutContent() {
 <li>MAIA</li>
 <li>San Francisco</li>
 <li>OpenAI</li>
+<li>19 National Parks</li>
 </ul>
 <h4>now</h4>
 <ul>
