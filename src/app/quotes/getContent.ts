@@ -1,6 +1,6 @@
 
 export function getquotesContent() {
-  return `<p>Where there’s Will there <strong>hath</strong> to be <strong>away</strong></p>
+  return `<p>Where there’s Will there <strong>hath</strong> to be <strong>a way</strong></p>
 <p>Alone, at the end of a universe humming a tune</p>
 <p>The whole idea that when you fall you gotta get up is bullshit. The whole thing is a fall. A perpetual state of grasping in the dark. It&#39;s not about getting up, it&#39;s about stumbling in the right direction. It&#39;s the only true way to move forward.</p>
 <p>It gets easier. Every day it gets a little easier. But you gotta do it every day —that’s the hard part. But it does get easier</p>
