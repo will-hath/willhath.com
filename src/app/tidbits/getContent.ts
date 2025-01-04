@@ -1,7 +1,7 @@
 
 export function getTidbitsContent() {
   return `<h4>Sunday, Dec 29, 2024</h4>
-<p>Many roads in India (especially in ) are too narrow to support 2-way traffic, </p>
+<p>Many roads in India (especially in the mountains) barely wide enough to support two-directional traffic. This poses a problem when the road goes around a turn, or if a portion of the road is washed out. In order to </p>
 <h4>Saturday, Dec 28, 2024</h4>
 <p>The origins of the term &quot;twink&quot; are uncertain, but it most likely comes from the snack twinky. </p>
 <h4>Thursday, Dec 26, 2024</h4>
