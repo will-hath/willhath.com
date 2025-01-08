@@ -23,7 +23,7 @@ export const quotes = [
   `> “If people do not believe that mathematics is simple, it is only because they do not realize how complicated life is.”  
 > — _John von Neumann_`,
   `> “Fling yourself straight into life, without deliberation; don’t be afraid—the flood will bear you back to the bank and set you safe on your feet again.”  
-> — _Fyodor Dostoevsky, Demons_`,
+> — _Fyodor Dostoevsky, Crime and Punishment_`,
   `> “Above all, don’t lie to yourself.”  
 > — _Fyodor Dostoevsky, The Brothers Karamazov_`,
   `> “We take risks, we know we take them. Therefore, when things come out against us, we have no cause for complaint.”  
