@@ -5,6 +5,7 @@ import Image from "next/image";
 import "./TV.css";
 import { TVProps } from "@/types/types";
 import AntennaBalls from "./AntennaBalls";
+import ReactMarkdown from 'react-markdown';
 
 // Original arrays, can keep them as is
 const photoGallery = Array.from({ length: 31 }, (_, index) => `/assets/gallery/${index}.jpg`);
@@ -109,7 +110,11 @@ const TV: React.FC<TVProps | null> = (props) => {
               <div
                 className={`tv-text-content ${isInitialLoad || !isVisible ? 'hidden' : ''}`}
               >
-                {currentContent}
+                <ReactMarkdown components={{
+                  p: ({children}) => <span className="tv-text">{children}</span>
+                }}>
+                  {currentContent}
+                </ReactMarkdown>
               </div>
             )}
 
