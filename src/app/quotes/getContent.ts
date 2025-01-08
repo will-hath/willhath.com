@@ -22,13 +22,10 @@ export function getquotesContent() {
 <p>&quot;My God, a whole moment of happiness! Is that too little for the whole of a man&#39;s life?&quot;<br>— <em>Fyodor Dostoevsky, White Nights</em></p>
 </blockquote>
 <blockquote>
-<p>&quot;There is no name you could call me would make me value your approval.&quot;<br>— <em>Unknown</em></p>
-</blockquote>
-<blockquote>
 <p>&quot;There are no endings, and never will be endings, to the turning of the Wheel. But it was an ending.&quot;<br>— <em>Robert Jordan, The Wheel of Time</em></p>
 </blockquote>
 <blockquote>
-<p>&quot;Blessed be the peacemakers, for they will be shot at from two sides.&quot;<br>— <em>A. J. P. Taylor</em></p>
+<p>&quot;Blessed be the peacemakers, for they will be shot at from two sides.&quot;<br>— <em>Dan Carlin</em></p>
 </blockquote>
 <blockquote>
 <p>&quot;There was truth and there was untruth, and if you clung to the truth, even against the whole world, you were not mad.&quot;<br>— <em>George Orwell, 1984</em></p>
