@@ -1,8 +1,10 @@
 
 export function getquotesContent() {
-  return `<blockquote>
-<p>&quot;Where there’s <strong>Will</strong> there <strong>Hath</strong> to be <strong>a way</strong>.&quot;</p>
-<p>-- <cite>Benjamin Franklin</cite></p>
+  return `<pre><code class="language-ad-quote">&quot;Where there’s **Will** there **Hath** to be **a way**.&quot;
+-- AS
+</code></pre>
+<blockquote>
+<p>Benjamin Franklin</p>
 </blockquote>
 <blockquote>
 <p>Alone, at the end of a universe humming a tune</p>
