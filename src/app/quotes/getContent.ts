@@ -1,13 +1,14 @@
 
 export function getquotesContent() {
   return `<blockquote>
-<p>&quot;Where there’s <strong>Will</strong> there <strong>Hath</strong> to be <strong>a way</strong>.&quot; &gt; -- <em>Owen Boxer</em></p>
+<p>&quot;Where there’s <strong>Will</strong> there <strong>Hath</strong> to be <strong>a way</strong>.&quot; 
+— <em>Owen Boxer</em></p>
 </blockquote>
 <blockquote>
-<p>&quot;Alone, at the end of a universe humming a tune.&quot;<br>— <em>Unknown</em></p>
+<p>&quot;Alone, at the end of a universe humming a tune.&quot;<br>— <em>Miracle Musical</em></p>
 </blockquote>
 <blockquote>
-<p>&quot;The whole idea that when you fall you gotta get up is bullshit. The whole thing is a fall. A perpetual state of grasping in the dark. It&#39;s not about getting up, it&#39;s about stumbling in the right direction. It&#39;s the only true way to move forward.&quot;<br>— <em>Unknown</em></p>
+<p>&quot;The whole idea that when you fall you gotta get up is bullshit. The whole thing is a fall. A perpetual state of grasping in the dark. It&#39;s not about getting up, it&#39;s about stumbling in the right direction. It&#39;s the only true way to move forward.&quot;<br>— <em>Mr. Robot</em></p>
 </blockquote>
 <blockquote>
 <p>&quot;It gets easier. Every day it gets a little easier. But you gotta do it every day—that’s the hard part. But it does get easier.&quot;<br>— <em>BoJack Horseman</em></p>
