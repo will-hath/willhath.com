@@ -1,8 +1,7 @@
 
 export function getquotesContent() {
   return `<blockquote>
-<p>&quot;Where there’s <strong>Will</strong> there <strong>Hath</strong> to be <strong>a way</strong>.&quot; 
-— <em>Owen Boxer</em></p>
+<p>&quot;Where there&#39;s a <strong>will</strong>, there <strong>hath</strong> to be <strong>a way</strong>&quot;<br>— <em>Owen Boxer</em></p>
 </blockquote>
 <blockquote>
 <p>&quot;Alone, at the end of a universe humming a tune.&quot;<br>— <em>Miracle Musical</em></p>
