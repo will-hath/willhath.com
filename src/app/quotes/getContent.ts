@@ -1,6 +1,9 @@
 
 export function getquotesContent() {
   return `<blockquote>
+<p>&quot;Where there’s <strong>Will</strong> there <strong>Hath</strong> to be <strong>a way</strong>.&quot; &gt; -- <em>Owen Boxer</em></p>
+</blockquote>
+<blockquote>
 <p>&quot;Alone, at the end of a universe humming a tune.&quot;<br>— <em>Unknown</em></p>
 </blockquote>
 <blockquote>
@@ -38,9 +41,6 @@ export function getquotesContent() {
 </blockquote>
 <blockquote>
 <p>&quot;Above all, don’t lie to yourself.&quot;<br>— <em>Fyodor Dostoevsky, The Brothers Karamazov</em></p>
-</blockquote>
-<blockquote>
-<p>&quot;Quite simple. Be an example of humanity that is not disappointing.&quot;<br>— <em>Unknown</em></p>
 </blockquote>
 <blockquote>
 <p>&quot;We take risks, we know we take them. Therefore, when things come out against us, we have no cause for complaint.&quot;<br>— <em>Robert Falcon Scott</em></p>
