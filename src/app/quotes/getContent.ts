@@ -34,7 +34,7 @@ export function getquotesContent() {
 <p>“If people do not believe that mathematics is simple, it is only because they do not realize how complicated life is.”<br>— <em>John von Neumann</em></p>
 </blockquote>
 <blockquote>
-<p>“Fling yourself straight into life, without deliberation; don’t be afraid—the flood will bear you back to the bank and set you safe on your feet again.”<br>— <em>Fyodor Dostoevsky, Demons</em></p>
+<p>“Fling yourself straight into life, without deliberation; don’t be afraid—the flood will bear you back to the bank and set you safe on your feet again.”<br>— <em>Fyodor Dostoevsky, Crime and Punishment</em></p>
 </blockquote>
 <blockquote>
 <p>“Above all, don’t lie to yourself.”<br>— <em>Fyodor Dostoevsky, The Brothers Karamazov</em></p>
