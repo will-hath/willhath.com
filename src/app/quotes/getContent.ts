@@ -1,9 +1,6 @@
 
 export function getquotesContent() {
-  return `<pre><code class="language-ad-quote">&quot;Where there’s **Will** there **Hath** to be **a way**.&quot;
--- AS
-</code></pre>
-<blockquote>
+  return `<blockquote>
 <p>Benjamin Franklin</p>
 </blockquote>
 <blockquote>
