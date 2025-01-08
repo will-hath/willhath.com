@@ -50,7 +50,7 @@ export function getTidbitsContent() {
 <h4>Monday, Jun 10, 2024</h4>
 <p>OpenAI&#39;s model spec has nothing explicitly against racism, other than to encourage kindness and fairness while discouraging hate.</p>
 <h4>Friday, May 31, 2024</h4>
-<p>Guinness world records is the same Guinness as Guinness beer. In order to write the first ever book, they reached out to experts in various fields. Instead of asking them for direct pieces of information, they stated facts that felt right, and experts eagerly stepped in to correct them. </p>
+<p>The Guinness in Guinness world records is the same Guinness as in Guinness beer. In order to write the first ever book, they reached out to experts in various fields. Instead of asking them for direct pieces of information, they stated facts that felt right, and experts eagerly stepped in to correct them. </p>
 <h4>Thursday, May 30, 2024</h4>
 <p>The British Library has super tight security. You can&#39;t bring your bag into any book rooms, and have to transfer anything you want to bring with you into transparent plastic bags that the library provides.</p>
 <h4>Friday, Mar 29, 2024</h4>
