@@ -1,6 +1,8 @@
 
 export function getAboutContent() {
-  return `<h4>institutions/locations</h4>
+  return `<h4>contact</h4>
+<p>will hath </p>
+<h4>institutions/locations</h4>
 <ul>
 <li>Portland, OR</li>
 <li>Cleveland HS</li>
