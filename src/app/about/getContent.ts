@@ -1,7 +1,7 @@
 
 export function getAboutContent() {
   return `<h4>contact</h4>
-<p>will hath </p>
+<p>will hath at mit dot edu</p>
 <h4>institutions/locations</h4>
 <ul>
 <li>Portland, OR</li>
