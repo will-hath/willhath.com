@@ -34,7 +34,7 @@
 body {
   color: var(--background);
   background: var(--background);
-  font-family: "Oswald", Times, serif;  /* Changed from Helvetica */
+  font-family: "Times New Roman", Times, serif;  /* Changed from Helvetica */
 }
 
 h1 {

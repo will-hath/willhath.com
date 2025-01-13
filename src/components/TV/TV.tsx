@@ -6,9 +6,9 @@ import "./TV.css";
 import { TVProps } from "@/types/types";
 import AntennaBalls from "./AntennaBalls";
 import ReactMarkdown from 'react-markdown';
+import { photoGallery } from "@/app/page";
 
 // Original arrays, can keep them as is
-const photoGallery = Array.from({ length: 31 }, (_, index) => `/assets/gallery/${index}.jpg`);
 const turnOnGif = "/assets/tv_turn_on_HD.gif";
 const staticGif = "/assets/tv_static.gif";
 const testImage = "/assets/gallery/0.jpg";
@@ -118,9 +118,13 @@ const TV: React.FC<TVProps | null> = (props) => {
               </div>
             )}
 
-            {props?.href && (
+            {props?.href ? (
               <Link href={props.href} className="tv-link">
                 {/* The link will wrap the screen area if desired */}
+              </Link>
+            ) : (
+              <Link href="/gallery" className="tv-link">
+                {/* Default link to the gallery page when props.href is none */}
               </Link>
             )}
             {props?.name && <div className="tv-name-overlay">{props.name}</div>}
