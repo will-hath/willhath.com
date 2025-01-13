@@ -6,7 +6,7 @@ import "./TV.css";
 import { TVProps } from "@/types/types";
 import AntennaBalls from "./AntennaBalls";
 import ReactMarkdown from 'react-markdown';
-import { photoGallery } from "@/app/page";
+import { photoGallery } from '@/constants/photoGallery';
 
 // Original arrays, can keep them as is
 const turnOnGif = "/assets/tv_turn_on_HD.gif";

@@ -9,8 +9,6 @@ import Desk from '@/components/Desk/Desk';
 import Image from 'next/image';
 import { quotes } from '@/app/quotes/quotesArray';
 
-export const photoGallery = Array.from({ length: 34 }, (_, index) => `/assets/gallery/${index}.jpg`);
-
 const Tidbits: TVProps = {
   textSources: [
     "The original DTP (Diptheria, Tetanus, Pertussis) vaccine, was considered too dangerous for use in the USA in the late 1980s due to neurological side-effects, and was replaced by DTaP, which uses acellular components of Pertussis, rather than whole-cell. However, DTP is still widely used in developing countries.",

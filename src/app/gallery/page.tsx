@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import "./gallery.css";
-import { photoGallery } from "../page";
+import { photoGallery } from '@/constants/photoGallery';
+
 export default function GalleryPage() {
   // Create an array of image paths
 
