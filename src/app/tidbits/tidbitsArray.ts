@@ -26,7 +26,6 @@ export const tidbits = [
   `OpenAI's model spec has nothing explicitly against racism, other than to encourage kindness and fairness while discouraging hate.`,
   `The Guinness in Guinness world records is the same Guinness as in Guinness beer. In order to write the first ever book, they reached out to experts in various fields. Instead of asking them for direct pieces of information, they stated facts that felt right, and experts eagerly stepped in to correct them.`,
   `The British Library has super tight security. You can't bring your bag into any book rooms, and have to transfer anything you want to bring with you into transparent plastic bags that the library provides.`,
-  `Intel is the only player in the chip industry that both designs *and* manufactures their chips.`,
   `For any three variables $x,y,z$ that are all functions of eachother
 $$
 \left(\frac{\partial x}{\partial y}\right)_z \left(\frac{\partial y}{\partial z}\right)_x \left(\frac{\partial z}{\partial x}\right)_y = -1

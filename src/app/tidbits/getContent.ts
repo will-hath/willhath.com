@@ -53,8 +53,6 @@ export function getTidbitsContent() {
 <p>The Guinness in Guinness world records is the same Guinness as in Guinness beer. In order to write the first ever book, they reached out to experts in various fields. Instead of asking them for direct pieces of information, they stated facts that felt right, and experts eagerly stepped in to correct them. </p>
 <h4>Thursday, May 30, 2024</h4>
 <p>The British Library has super tight security. You can&#39;t bring your bag into any book rooms, and have to transfer anything you want to bring with you into transparent plastic bags that the library provides.</p>
-<h4>Friday, Mar 29, 2024</h4>
-<p>Intel is the only player in the chip industry that both designs <em>and</em> manufactures their chips.  </p>
 <h4>Monday, Mar 11, 2024</h4>
 <p>For any three variables $x,y,z$ that are all functions of eachother
 $$
