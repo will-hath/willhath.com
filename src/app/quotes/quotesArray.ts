@@ -2,6 +2,8 @@
 export const quotes = [
   `> “Where there's a **will**, there **hath** to be **a way**.”  
 > — _Owen Boxer_`,
+  `> “Fling yourself straight into life, without deliberation; don’t be afraid—the flood will bear you back to the bank and set you safe on your feet again.”  
+> — _Fyodor Dostoevsky, Crime and Punishment_`,
   `> “Alone, at the end of a universe humming a tune.”  
 > — _Miracle Musical_`,
   `> “The whole idea that when you fall you gotta get up is bullshit. The whole thing is a fall. A perpetual state of grasping in the dark. It's not about getting up, it's about stumbling in the right direction. It's the only true way to move forward.”  
@@ -22,12 +24,12 @@ export const quotes = [
 > — _George Orwell, 1984_`,
   `> “If people do not believe that mathematics is simple, it is only because they do not realize how complicated life is.”  
 > — _John von Neumann_`,
-  `> “Fling yourself straight into life, without deliberation; don’t be afraid—the flood will bear you back to the bank and set you safe on your feet again.”  
-> — _Fyodor Dostoevsky, Crime and Punishment_`,
   `> “Above all, don’t lie to yourself.”  
 > — _Fyodor Dostoevsky, The Brothers Karamazov_`,
   `> “We take risks, we know we take them. Therefore, when things come out against us, we have no cause for complaint.”  
 > — _Robert Falcon Scott_`,
+  `> It’s not a drinking problem. It’s a drinking solution!
+> — _Some girl at a party once in college_`,
   `> “Everyone remembers Icarus, nobody remembers the other guy.”  
 > — _Unknown_`
 ];

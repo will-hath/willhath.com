@@ -1,5 +1,6 @@
 
 export const tidbits = [
+  `If you ask any of OpenAI’s models what their favorite word is, they’ll say “serendipity”.`,
   `Redwoods, despite the name, are not actually very red. Their bark looks a lot like cedar — in bright lighting, a light brown, interspersed with patches of a dilute burnt orange. However, if you take a knife and peel back the bark from a bough, you’ll notice a light red layer in between the brown bark and the white wood.`,
   `Big Sur is a great place to go backpacking in in the winter. It’s 40-65 degrees and sunny (ymmv).`,
   `There is not a single Walmart store in San Francisco.`,

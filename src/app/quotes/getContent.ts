@@ -4,6 +4,9 @@ export function getquotesContent() {
 <p>“Where there&#39;s a <strong>will</strong>, there <strong>hath</strong> to be <strong>a way</strong>.”<br>— <em>Owen Boxer</em></p>
 </blockquote>
 <blockquote>
+<p>“Fling yourself straight into life, without deliberation; don’t be afraid—the flood will bear you back to the bank and set you safe on your feet again.”<br>— <em>Fyodor Dostoevsky, Crime and Punishment</em></p>
+</blockquote>
+<blockquote>
 <p>“Alone, at the end of a universe humming a tune.”<br>— <em>Miracle Musical</em></p>
 </blockquote>
 <blockquote>
@@ -34,13 +37,14 @@ export function getquotesContent() {
 <p>“If people do not believe that mathematics is simple, it is only because they do not realize how complicated life is.”<br>— <em>John von Neumann</em></p>
 </blockquote>
 <blockquote>
-<p>“Fling yourself straight into life, without deliberation; don’t be afraid—the flood will bear you back to the bank and set you safe on your feet again.”<br>— <em>Fyodor Dostoevsky, Crime and Punishment</em></p>
-</blockquote>
-<blockquote>
 <p>“Above all, don’t lie to yourself.”<br>— <em>Fyodor Dostoevsky, The Brothers Karamazov</em></p>
 </blockquote>
 <blockquote>
 <p>“We take risks, we know we take them. Therefore, when things come out against us, we have no cause for complaint.”<br>— <em>Robert Falcon Scott</em></p>
+</blockquote>
+<blockquote>
+<p>It’s not a drinking problem. It’s a drinking solution!
+— <em>Some girl at a party once in college</em></p>
 </blockquote>
 <blockquote>
 <p>“Everyone remembers Icarus, nobody remembers the other guy.”<br>— <em>Unknown</em></p>
