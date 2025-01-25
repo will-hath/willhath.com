@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 import "./gallery.css";
 import { photoGallery } from "@/constants/photoGallery";
@@ -15,7 +16,6 @@ export default function GalleryPage() {
   };
 
   const showPrev = (e: React.MouseEvent) => {
-    // prevent the click from also triggering closeModal
     e.stopPropagation();
     if (selectedIndex !== null) {
       setSelectedIndex((prevIndex) =>
@@ -39,25 +39,35 @@ export default function GalleryPage() {
       <div className="gallery-grid">
         {photoGallery.map((src, i) => (
           <div key={i} className="gallery-item">
-            <img
+            <Image
               src={src}
               alt={`Gallery item ${i}`}
+              // width/height can be fixed or dynamic
+              width={400}
+              height={400}
+              // Mark the first few images as priority
+              priority={i < 3}
+              // In Next.js, "loading" is typically determined automatically
+              // but you can still explicitly set it if needed:
+              loading={i < 3 ? "eager" : "lazy"}
               onClick={() => openModal(i)}
+              style={{ objectFit: "cover" }}
             />
           </div>
         ))}
       </div>
 
-      {/* Modal */}
       {selectedIndex !== null && (
         <div className="gallery-modal" onClick={closeModal}>
           <button className="nav-button prev-button" onClick={showPrev}>
             &larr;
           </button>
-          <img
+          <Image
             className="modal-image"
             src={photoGallery[selectedIndex]}
             alt={`Modal item ${selectedIndex}`}
+            width={800}
+            height={600}
           />
           <button className="nav-button next-button" onClick={showNext}>
             &rarr;
