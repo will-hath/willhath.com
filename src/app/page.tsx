@@ -22,17 +22,17 @@ const Substack: TVProps = {
   href: "https://willhath.substack.com"
 }
 
-const Projects: TVProps = {
-  imageSources: ["/assets/comingsoon.png"],
-  name: "projects",
-  href: "/projects/"
-}
+// const Projects: TVProps = {
+//   imageSources: ["/assets/comingsoon.png"],
+//   name: "projects",
+//   href: "/projects/"
+// }
 
-const Bookshelf: TVProps = {
-  imageSources: ["/assets/comingsoon.png"],
-  name: "bookshelf",
-  href: "/bookshelf/"
-}
+// const Bookshelf: TVProps = {
+//   imageSources: ["/assets/comingsoon.png"],
+//   name: "bookshelf",
+//   href: "/bookshelf/"
+// }
 
 const Quotes: TVProps = {
   imageSources: ["/assets/comingsoon.png"],
