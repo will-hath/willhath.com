@@ -1,7 +1,7 @@
 
 export function getTidbitsContent() {
   return `<h4>Saturday, Jan 25, 2025</h4>
-<p>Larry Ellison owns 97% of Lanai, Hawaiis 6th largest Island. </p>
+<p>Larry Ellison owns 97% of Lanai, Hawaiis 6th largest irsland. </p>
 <h4>Wednesday, Jan 15, 2025</h4>
 <p>If you ask any of OpenAI’s models what their favorite word is, they’ll say “serendipity”. </p>
 <h4>Sunday, Jan 5, 2025</h4>
