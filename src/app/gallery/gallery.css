@@ -63,6 +63,8 @@
   }
   
   .modal-image {
+    width: auto;
+    height: auto;
     max-width: 90%;
     max-height: 80vh;
     cursor: auto; /* The image itself can have a normal cursor */
