@@ -1,7 +1,7 @@
 
 export function getTidbitsContent() {
   return `<h4>Saturday, Apr 12, 2025</h4>
-<p>After Robert Kennedy ceased it&#39;s operation as a prison, Alcatraz island was occupied by a group of Native Americans for 18 months in between November 1969 and June 1971. They justified this under the 1868 Treaty of Fort Laramie, which stated that all land &quot;declared surplus&quot; should be returned to the indigenous peoples.</p>
+<p>After Robert Kennedy ceased it&#39;s operation as a prison, Alcatraz island was occupied by a group of Native Americans for 18 months, between November 1969 and June 1971. They legally justified this under the 1868 Treaty of Fort Laramie, which stated that all land &quot;declared surplus&quot; should be returned to the indigenous peoples.</p>
 <h4>Wednesday, Apr 2, 2025</h4>
 <p>On my work phone, 1password blocks me from using the flashlight while I have the app open. Idk if this is a security thing or what.</p>
 <h4>Sunday, Mar 16, 2025</h4>
