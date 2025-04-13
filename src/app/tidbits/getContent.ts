@@ -1,6 +1,16 @@
 
 export function getTidbitsContent() {
-  return `<h4>Saturday, Jan 25, 2025</h4>
+  return `<h4>Saturday, Apr 12, 2025</h4>
+<p>After Robert Kennedy ceased it&#39;s operation as a prison, Alcatraz island was occupied by a group of Native Americans for 18 months in between November 1969 and June 1971. They justified this under the 1868 Treaty of Fort Laramie, which stated that all land &quot;declared surplus&quot; should be returned to the indigenous peoples.</p>
+<h4>Wednesday, Apr 2, 2025</h4>
+<p>On my work phone, 1password blocks me from using the flashlight while I have the app open. Idk if this is a security thing or what.</p>
+<h4>Sunday, Mar 16, 2025</h4>
+<p>In San Francisco, you can order Airpods from Amazon on a Sunday evening, and they’ll arrive at your home by 8AM the following morning. </p>
+<h4>Monday, Jan 27, 2025</h4>
+<p>European call options have to be exercised on the expiration date, while American call options can be exercised at any time between when they&#39;re bought and when they expire. </p>
+<h4>Sunday, Jan 26, 2025</h4>
+<p>Birthright citizenship is nearly universally, and exclusively, a New World trait. Every country in North and South America, absent Colombia, French Guinea, and Suriname, has an unrestricted birthright citizenship policy, while only a ~3 countries in the rest of the world have equivalent policies. </p>
+<h4>Saturday, Jan 25, 2025</h4>
 <p>Larry Ellison owns 97% of Lanai, Hawaiis 6th largest island. </p>
 <h4>Wednesday, Jan 15, 2025</h4>
 <p>If you ask any of OpenAI’s models what their favorite word is, they’ll say “serendipity”. </p>

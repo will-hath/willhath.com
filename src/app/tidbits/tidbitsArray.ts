@@ -1,5 +1,10 @@
 
 export const tidbits = [
+  `After Robert Kennedy ceased it's operation as a prison, Alcatraz island was occupied by a group of Native Americans for 18 months in between November 1969 and June 1971. They justified this under the 1868 Treaty of Fort Laramie, which stated that all land "declared surplus" should be returned to the indigenous peoples.`,
+  `On my work phone, 1password blocks me from using the flashlight while I have the app open. Idk if this is a security thing or what.`,
+  `In San Francisco, you can order Airpods from Amazon on a Sunday evening, and they’ll arrive at your home by 8AM the following morning.`,
+  `European call options have to be exercised on the expiration date, while American call options can be exercised at any time between when they're bought and when they expire.`,
+  `Birthright citizenship is nearly universally, and exclusively, a New World trait. Every country in North and South America, absent Colombia, French Guinea, and Suriname, has an unrestricted birthright citizenship policy, while only a ~3 countries in the rest of the world have equivalent policies.`,
   `Larry Ellison owns 97% of Lanai, Hawaiis 6th largest island.`,
   `If you ask any of OpenAI’s models what their favorite word is, they’ll say “serendipity”.`,
   `Redwoods, despite the name, are not actually very red. Their bark looks a lot like cedar — in bright lighting, a light brown, interspersed with patches of a dilute burnt orange. However, if you take a knife and peel back the bark from a bough, you’ll notice a light red layer in between the brown bark and the white wood.`,

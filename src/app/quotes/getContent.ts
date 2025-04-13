@@ -43,8 +43,7 @@ export function getquotesContent() {
 <p>“We take risks, we know we take them. Therefore, when things come out against us, we have no cause for complaint.”<br>— <em>Robert Falcon Scott</em></p>
 </blockquote>
 <blockquote>
-<p>It’s not a drinking problem. It’s a drinking solution!
-— <em>Some girl at a party once in college</em></p>
+<p>It’s not a drinking problem. It’s a drinking solution!<br>— <em>Some girl at a party once in college</em></p>
 </blockquote>
 <blockquote>
 <p>“Everyone remembers Icarus, nobody remembers the other guy.”<br>— <em>Unknown</em></p>

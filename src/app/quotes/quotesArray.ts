@@ -28,7 +28,7 @@ export const quotes = [
 > — _Fyodor Dostoevsky, The Brothers Karamazov_`,
   `> “We take risks, we know we take them. Therefore, when things come out against us, we have no cause for complaint.”  
 > — _Robert Falcon Scott_`,
-  `> It’s not a drinking problem. It’s a drinking solution!
+  `> It’s not a drinking problem. It’s a drinking solution!  
 > — _Some girl at a party once in college_`,
   `> “Everyone remembers Icarus, nobody remembers the other guy.”  
 > — _Unknown_`
