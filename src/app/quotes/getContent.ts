@@ -50,7 +50,7 @@ export function getquotesContent() {
 </blockquote>
 <blockquote>
 <p> &quot;And while I tell you, I am myself sifting my memories, the way men pan the dirt under a barroom floor for the bits of gold dust that fall between the cracks. It’s small mining—small mining. You’re too young a man to be panning memories, Adam. You should be getting yourself some new ones, so that the mining will be richer when you come to age”
- — <em>John Steinbeck, East of Ed</em></p>
+ — <em>John Steinbeck, East of Eden</em></p>
 </blockquote>
 `;
 }

@@ -33,5 +33,5 @@ export const quotes = [
   `> “Everyone remembers Icarus, nobody remembers the other guy.”  
 > — _Unknown_`,
   `>  "And while I tell you, I am myself sifting my memories, the way men pan the dirt under a barroom floor for the bits of gold dust that fall between the cracks. It’s small mining—small mining. You’re too young a man to be panning memories, Adam. You should be getting yourself some new ones, so that the mining will be richer when you come to age”
->  — _John Steinbeck, East of Ed_`
+>  — _John Steinbeck, East of Eden_`
 ];
