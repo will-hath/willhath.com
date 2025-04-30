@@ -31,5 +31,6 @@ export const quotes = [
   `> It’s not a drinking problem. It’s a drinking solution!  
 > — _Some girl at a party once in college_`,
   `> “Everyone remembers Icarus, nobody remembers the other guy.”  
-> — _Unknown_`
+> — _Unknown_`,
+  `>  “I can’t tell you how to live your life,” Samuel said, “although I do be telling you how to live it. I know that it might be better for you to come out from under your might-have-been, into the winds of the world. And while I tell you, I am myself sifting my memories, the way men pan the dirt under a barroom floor for the bits of gold dust that fall between the cracks. It’s small mining—small mining. You’re too young a man to be panning memories, Adam. You should be getting yourself some new ones, so that the mining will be richer when you come to age”`
 ];
