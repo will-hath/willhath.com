@@ -1,5 +1,6 @@
 
 export const tidbits = [
+  `If you lose your motorcycle key, you can order a replacement by finding the key code on any of the bike’s three keyholes (ignition, seat lock, and helmet lock). It costs about $40. This might just be for old bikes.`,
   `After Robert Kennedy ceased it's operation as a prison, Alcatraz island was occupied by a group of Native Americans for 18 months, between November 1969 and June 1971. They legally justified this under the 1868 Treaty of Fort Laramie, which stated that all land "declared surplus" should be returned to the indigenous peoples.`,
   `On my work phone, 1password blocks me from using the flashlight while I have the app open. Idk if this is a security thing or what.`,
   `In San Francisco, you can order Airpods from Amazon on a Sunday evening, and they’ll arrive at your home by 8AM the following morning.`,
