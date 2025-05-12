@@ -1,7 +1,7 @@
 
 export function getTidbitsContent() {
   return `<h4>Saturday, May 10, 2025</h4>
-<p>If you press the ‘.’ key while you have a PR open in github, it will open an in-browser vscode editor you can use to make edits. </p>
+<p>If you press the <code>asdf</code> key while you have a PR open in github, it will open an in-browser vscode editor you can use to make edits. </p>
 <h4>Sunday, May 4, 2025</h4>
 <p>The 451 http error code means “unable to show content due to legal reasons”. </p>
 <h4>Saturday, May 3, 2025</h4>
