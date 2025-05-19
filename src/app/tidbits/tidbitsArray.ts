@@ -1,5 +1,6 @@
 
 export const tidbits = [
+  `It’s not that contracts signed by minors have no legal standing. It’s that contracts cannot be *enforced against* minors. So effectively, minors get to decide whether or not a contract they’re in should be enforced or not, making it a win-win for them. So tldr, if you’re under 18 you should always sign.`,
   `If you press the \`\`.\`\` key while you have a PR open in github, it will open an in-browser vscode editor you can use to make edits.`,
   `The 451 http error code means “unable to show content due to legal reasons”.`,
   `If you lose your motorcycle key, you can order a replacement by finding the key code on any of the bike’s three keyholes (ignition, seat lock, and helmet lock). It costs about $40. This might just be for old bikes.`,
