@@ -36,7 +36,6 @@ export function getTidbitsContent() {
 <p>Many roads in India (especially in the mountains) barely wide enough to support two-directional traffic. This poses a problem when the road goes around a turn, or if a portion of the road is washed out. Thus, in order to safely navigate corners, Indian drivers lay on their horns every time visibility is remotely obscured.</p>
 <h4>Saturday, Dec 28, 2024</h4>
 <p>The origins of the term &quot;twink&quot; are uncertain, but it most likely comes from the hostess snack twinky. </p>
-<h4>Friday, Dec 27, 2024</h4>
 <h4>Thursday, Dec 26, 2024</h4>
 <p>Next JS&#39;s Image module gives you the ability to specify how your image will effect the way the page loads the first time someone opens it. For example, adding the &quot;priority&quot; tag blocks the rest of the page from being displayed to the user until that image has fully loaded and is ready to be displayed.</p>
 <h4>Monday, Dec 23, 2024</h4>
