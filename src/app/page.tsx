@@ -11,8 +11,8 @@ import { quotes } from '@/app/quotes/quotesArray';
 import { tidbits } from '@/app/tidbits/tidbitsArray';
 
 const Tidbits: TVProps = {
-  textSources: tidbits,
-  name: "",
+  textSources: tidbits.map(tidbit => tidbit.text),
+  name: "tidbits",
   href: "/tidbits/"
 }
 
@@ -21,7 +21,7 @@ const Substack: TVProps = {
   name: "substack",
   href: "https://willhath.substack.com"
 }
-
+ 
 // const Projects: TVProps = {
 //   imageSources: ["/assets/comingsoon.png"],
 //   name: "projects",
@@ -37,7 +37,7 @@ const Substack: TVProps = {
 const Quotes: TVProps = {
   imageSources: ["/assets/comingsoon.png"],
   textSources: quotes,
-  name: "",
+  name: "quotes",
   href: "/quotes/"
 }
 

@@ -1,50 +1,51 @@
 "use client"
-import { useEffect } from 'react';
-import { getTidbitsContent } from './getContent';
-
-interface MathJaxConfig {
-  tex: {
-    inlineMath: string[][];
-    displayMath: string[][];
-    processEscapes: boolean;
-    processEnvironments: boolean;
-  };
-  svg: {
-    fontCache: string;
-  };
-}
-
-declare global {
-  interface Window {
-    MathJax: MathJaxConfig;
-  }
-}
+import { useEffect, useRef} from 'react';
+import { useSearchParams } from 'next/navigation';
+import { tidbits } from './tidbitsArray';
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeMathjax from 'rehype-mathjax';
 
 export default function Tidbits() {
+  const searchParams = useSearchParams();
+  const tidbitRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
-    script.async = true;
-
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true,
-        processEnvironments: true
-      },
-      svg: {
-        fontCache: 'global'
+    const tidbitId = searchParams.get('tidbit');
+    if (tidbitId != null) {
+      const index = parseInt(tidbitId);
+      const tidbitElement = tidbitRefs.current[index]
+      if (tidbitElement) {
+        tidbitElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Add a highlight effect
+        tidbitElement.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+        setTimeout(() => {
+          tidbitElement.style.backgroundColor = '';
+        }, 2000);
       }
-    };
-
-    document.head.appendChild(script);
-  }, []);
+    }
+  }, [searchParams]);
 
   return (
     <main className="page-border">
       <h1>Tidbits</h1>
-      <div dangerouslySetInnerHTML={{ __html: getTidbitsContent() }} />
+      <div>
+        {tidbits.map((tidbit, i) => (
+            <div
+              key={i}
+              ref={el => { tidbitRefs.current[i] = el; }}
+              style={{ marginBottom: '2rem' }}
+            >
+              <h4>{tidbit.date}</h4>
+              <ReactMarkdown
+                remarkPlugins={[remarkMath]}
+                rehypePlugins={[rehypeMathjax]}
+              >
+                {tidbit.text}
+              </ReactMarkdown>
+            </div>
+          ))}
+        </div>
     </main>
   );
 }

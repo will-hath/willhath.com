@@ -18,6 +18,7 @@ const TV: React.FC<TVProps | null> = (props) => {
   const [currentContent, setCurrentContent] = useState<string>(testImage);
   const [isVisible, setIsVisible] = useState(true);
   const [dialRotation, setDialRotation] = useState(45);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   // Decide which array of 'items' to rotate through
   const images = useMemo(() => {
@@ -35,28 +36,27 @@ const TV: React.FC<TVProps | null> = (props) => {
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * contents.length);
     setCurrentContent(contents[randomIndex]);
+    setCurrentIndex(randomIndex);
     setDialRotation(Math.floor(Math.random() * 90) - 45);
-    console.log("content: ", currentContent);
   }, [contents]);
 
   // Rotation effect
   useEffect(() => {
     if (!isInitialLoad && contents.length > 1) {
       const interval = setInterval(() => {
-        console.log("contenst: ", contents.length);
-        console.log("content: ", currentContent);
         setDialRotation(Math.floor(Math.random() * 90) - 45);
         setIsVisible(false);
         setTimeout(() => {
-          setCurrentContent((prevContent) => {
+          setCurrentIndex((prevIndex) => {
             let nextIndex;
             do {
               nextIndex = Math.floor(Math.random() * contents.length);
             } while (
-              contents[nextIndex] === prevContent && 
+              nextIndex === prevIndex && 
               contents.length > 1
             );
-            return contents[nextIndex];
+            setCurrentContent(contents[nextIndex]);
+            return nextIndex;
           });
           setIsVisible(true);
         }, 300);
@@ -65,6 +65,14 @@ const TV: React.FC<TVProps | null> = (props) => {
       return () => clearInterval(interval);
     }
   }, [isInitialLoad, contents]);
+
+  const handleClick = () => {
+    if (hasText && props?.href === "/quotes/") {
+      window.location.href = `/quotes/?quote=${currentIndex}`;
+    } else if (hasText && props?.href === "/tidbits/") {
+      window.location.href = `/tidbits/?tidbit=${currentIndex}`;
+    }
+  };
 
   return (
     <>
@@ -118,15 +126,11 @@ const TV: React.FC<TVProps | null> = (props) => {
               </div>
             )}
 
-            {props?.href ? (
-              <Link href={props.href} className="tv-link">
-                {/* The link will wrap the screen area if desired */}
-              </Link>
-            ) : (
-              <Link href="/gallery" className="tv-link">
-                {/* Default link to the gallery page when props.href is none */}
-              </Link>
-            )}
+            <div 
+              className="tv-link"
+              onClick={handleClick}
+              style={{ cursor: 'pointer' }}
+            />
             {props?.name && <div className="tv-name-overlay">{props.name}</div>}
           </div>
         </div>

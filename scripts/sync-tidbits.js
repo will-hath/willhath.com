@@ -3,7 +3,7 @@ const path = require('path');
 const marked = require('marked');
 
 // Define paths
-const markdownPath = path.join("/Users/willhathaway/Library/Mobile Documents/iCloud~md~obsidian/Documents/My *Mac* Life/tidbits.md");
+const markdownPath = path.join("/Users/willhathaway/Library/Mobile Documents/iCloud~md~obsidian/Documents/My *Mac* Life/willhath.com/tidbits.md");
 const outputPath = path.join(__dirname, '..', 'src', 'app', 'tidbits', 'getContent.ts');
 const tidbitsArrayPath = path.join(__dirname, '..', 'src', 'app', 'tidbits', 'tidbitsArray.ts');
 
@@ -23,21 +23,25 @@ export function getTidbitsContent() {
 }
 `;
 
-// Extract tidbits (content between dates, excluding the dates)
+// Extract tidbits as objects with date and text
 const tidbits = markdownContent
-  .split('####')  // Split by headers
-  .slice(1)  // Remove any content before first header
+  .split('####')
+  .slice(1)
   .map(block => {
     const lines = block.split('\n');
-    // Skip the date line and any empty lines, join the rest
-    return lines.slice(1).filter(line => line.trim()).join('\n').trim();
+    const date = lines[0].trim();
+    const text = lines.slice(1).filter(line => line.trim()).join('\n').trim();
+    return { date, text };
   })
-  .filter(tidbit => tidbit.length > 0);
+  .filter(tidbit => tidbit.text.length > 0 && tidbit.date.length > 0);
 
-// Create the tidbits array content
+// Create the tidbits array content as array of objects
 const tidbitsArrayContent = `
 export const tidbits = [
-  ${tidbits.map(tidbit => `\`${tidbit.replace(/`/g, '\\`')}\``).join(',\n  ')}
+  ${tidbits.map(t => `{
+    date: \`${t.date.replace(/`/g, '\\`')}\`,
+    text: \`${t.text.replace(/`/g, '\\`')}\`
+  }`).join(',\n  ')}
 ];
 `;
 

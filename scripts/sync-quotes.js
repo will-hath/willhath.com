@@ -3,7 +3,7 @@ const path = require('path');
 const marked = require('marked');
 
 // Define paths
-const markdownPath = path.join("/Users/willhathaway/Library/Mobile Documents/iCloud~md~obsidian/Documents/My *Mac* Life/quotes.md");
+const markdownPath = path.join("/Users/willhathaway/Library/Mobile Documents/iCloud~md~obsidian/Documents/My *Mac* Life/willhath.com/quotes.md");
 const outputPath = path.join(__dirname, '..', 'src', 'app', 'quotes', 'getContent.ts');
 const quotesArrayPath = path.join(__dirname, '..', 'src', 'app', 'quotes', 'quotesArray.ts');
 
