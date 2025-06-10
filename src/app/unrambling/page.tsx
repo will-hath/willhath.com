@@ -1,5 +1,4 @@
 "use client"
-import { useEffect } from 'react';
 import { blogPosts } from './blogPosts';
 import Link from 'next/link';
 
