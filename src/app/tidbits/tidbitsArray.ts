@@ -160,7 +160,7 @@ export const tidbits = [
     date: `Monday, Mar 11, 2024`,
     text: `For any three variables $x,y,z$ that are all functions of eachother
 $$
-\left(\frac{\partial x}{\partial y}\right)_z \left(\frac{\partial y}{\partial z}\right)_x \left(\frac{\partial z}{\partial x}\right)_y = -1
+\\left(\\frac{\\partial x}{\\partial y}\\right)_z \\left(\\frac{\\partial y}{\\partial z}\\right)_x \\left(\\frac{\\partial z}{\\partial x}\\right)_y = -1
 $$`
   },
   {
