@@ -6,7 +6,7 @@ export const tidbits = [
   },
   {
     date: `Thursday, July 3, 2025`,
-    text: `Wyoming is a beautiful state, but mostly in the north`
+    text: `Wyoming has a lot of beauty, but it's mostly in the North. Past about 30 minutes south of Jackson is pretty deserted and depressing.`
   },
   {
     date: `Sunday, May 18, 2025`,
