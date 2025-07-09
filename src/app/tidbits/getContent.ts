@@ -1,7 +1,9 @@
 
 export function getTidbitsContent() {
   return `<h4>Tuesday, July 8, 2025</h4>
-<p>In Nascar, the outside wheel is larger</p>
+<p>In Nascar, the left wheel is smaller than the right wheel.</p>
+<h4>Thursday, July 3, 2025</h4>
+<p>Wyoming is a beautiful state, but mostly in the north</p>
 <h4>Sunday, May 18, 2025</h4>
 <p>It’s not that contracts signed by minors have no legal standing. It’s that contracts cannot be <em>enforced against</em> minors. So effectively, minors get to decide whether or not a contract they’re in should be enforced or not, making it a win-win for them. So tldr, if you’re under 18 you should always sign. </p>
 <h4>Saturday, May 10, 2025</h4>

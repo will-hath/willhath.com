@@ -2,7 +2,11 @@
 export const tidbits = [
   {
     date: `Tuesday, July 8, 2025`,
-    text: `In Nascar, the outside wheel is larger`
+    text: `In Nascar, the left wheel is smaller than the right wheel.`
+  },
+  {
+    date: `Thursday, July 3, 2025`,
+    text: `Wyoming is a beautiful state, but mostly in the north`
   },
   {
     date: `Sunday, May 18, 2025`,
