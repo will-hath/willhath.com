@@ -1,6 +1,10 @@
 
 export const tidbits = [
   {
+    date: `Tuesday, July 8, 2025`,
+    text: `In Nascar, the outside wheel is larger`
+  },
+  {
     date: `Sunday, May 18, 2025`,
     text: `It’s not that contracts signed by minors have no legal standing. It’s that contracts cannot be *enforced against* minors. So effectively, minors get to decide whether or not a contract they’re in should be enforced or not, making it a win-win for them. So tldr, if you’re under 18 you should always sign.`
   },

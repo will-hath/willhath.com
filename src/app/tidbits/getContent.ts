@@ -1,6 +1,8 @@
 
 export function getTidbitsContent() {
-  return `<h4>Sunday, May 18, 2025</h4>
+  return `<h4>Tuesday, July 8, 2025</h4>
+<p>In Nascar, the outside wheel is larger</p>
+<h4>Sunday, May 18, 2025</h4>
 <p>It’s not that contracts signed by minors have no legal standing. It’s that contracts cannot be <em>enforced against</em> minors. So effectively, minors get to decide whether or not a contract they’re in should be enforced or not, making it a win-win for them. So tldr, if you’re under 18 you should always sign. </p>
 <h4>Saturday, May 10, 2025</h4>
 <p>If you press the <code>.</code> key while you have a PR open in github, it will open an in-browser vscode editor you can use to make edits. </p>
