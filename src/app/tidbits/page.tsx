@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useRef} from 'react';
+import { useEffect, useRef, Suspense} from 'react';
 import { useSearchParams } from 'next/navigation';
 import { tidbits } from './tidbitsArray';
 import ReactMarkdown from 'react-markdown';
@@ -7,7 +7,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 
-export default function Tidbits() {
+function TidbitsContent() {
   const searchParams = useSearchParams();
   const tidbitRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -48,5 +48,13 @@ export default function Tidbits() {
           ))}
         </div>
     </main>
+  );
+}
+
+export default function Tidbits() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <TidbitsContent />
+    </Suspense>
   );
 }

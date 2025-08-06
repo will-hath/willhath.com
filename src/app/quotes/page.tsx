@@ -1,10 +1,10 @@
 "use client"
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, Suspense } from 'react';
 import { quotes } from './quotesArray';
 import { useSearchParams } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 
-export default function Quotes() {
+function QuotesContent() {
     const searchParams = useSearchParams();
     const quoteRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -61,4 +61,12 @@ export default function Quotes() {
         </div>
       </main>
     );
+}
+
+export default function Quotes() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <QuotesContent />
+    </Suspense>
+  );
 }
