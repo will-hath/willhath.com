@@ -9,7 +9,8 @@ export default function About() {
       script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
       script.async = true;
   
-      window.MathJax = {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (window as any).MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           displayMath: [['$$', '$$'], ['\\[', '\\]']],
