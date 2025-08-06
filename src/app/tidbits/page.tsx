@@ -4,7 +4,8 @@ import { useSearchParams } from 'next/navigation';
 import { tidbits } from './tidbitsArray';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
-import rehypeMathjax from 'rehype-mathjax';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 
 export default function Tidbits() {
   const searchParams = useSearchParams();
@@ -29,7 +30,7 @@ export default function Tidbits() {
   return (
     <main className="page-border">
       <h1>Tidbits</h1>
-      <div>
+      <div className="tidbits-content">
         {tidbits.map((tidbit, i) => (
             <div
               key={i}
@@ -39,7 +40,7 @@ export default function Tidbits() {
               <h4>{tidbit.date}</h4>
               <ReactMarkdown
                 remarkPlugins={[remarkMath]}
-                rehypePlugins={[rehypeMathjax]}
+                rehypePlugins={[rehypeKatex]}
               >
                 {tidbit.text}
               </ReactMarkdown>

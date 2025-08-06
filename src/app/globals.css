@@ -30,6 +30,34 @@
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
 }
 
+/* KaTeX math styling - override global color inheritance */
+.katex,
+.katex-display,
+.katex-html,
+.katex * {
+  color: black !important;
+  background: transparent !important;
+}
+
+/* Ensure all KaTeX elements in the page-border container are black */
+.page-border .katex,
+.page-border .katex-display,
+.page-border .katex-html,
+.page-border .katex * {
+  color: black !important;
+  background: transparent !important;
+}
+
+/* Make display math left-aligned instead of centered */
+.katex-display {
+  text-align: left !important;
+  margin: 1em 0 !important;
+}
+
+.page-border .katex-display {
+  text-align: left !important;
+  margin: 1em 0 !important;
+}
 
 body {
   color: var(--background);

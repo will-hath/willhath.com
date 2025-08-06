@@ -4,24 +4,11 @@ const marked = require('marked');
 
 // Define paths
 const markdownPath = path.join("/Users/willhathaway/Library/Mobile Documents/iCloud~md~obsidian/Documents/My *Mac* Life/willhath.com/tidbits.md");
-const outputPath = path.join(__dirname, '..', 'src', 'app', 'tidbits', 'getContent.ts');
 const tidbitsArrayPath = path.join(__dirname, '..', 'src', 'app', 'tidbits', 'tidbitsArray.ts');
 
 // Read and convert markdown
 const markdownContent = fs.readFileSync(markdownPath, 'utf-8');
-const htmlContent = marked.parse(markdownContent);
 
-// Escape backticks and handle LaTeX backslashes
-const escapedContent = htmlContent
-  .replace(/`/g, '\\`')  // Escape backticks
-  .replace(/\\/g, '\\\\');  // Double escape backslashes for LaTeX
-
-// Create the TypeScript content for getContent
-const tsContent = `
-export function getTidbitsContent() {
-  return \`${escapedContent}\`;
-}
-`;
 
 // Extract tidbits as objects with date and text
 const tidbits = markdownContent
@@ -39,14 +26,12 @@ const tidbits = markdownContent
 const tidbitsArrayContent = `
 export const tidbits = [
   ${tidbits.map(t => `{
-    date: \`${t.date.replace(/`/g, '\\`')}\`,
-    text: \`${t.text.replace(/`/g, '\\`')}\`
+    date: \`${t.date.replace(/\\/g, '\\\\').replace(/`/g, '\\`')}\`,
+    text: \`${t.text.replace(/\\/g, '\\\\').replace(/`/g, '\\`')}\`
   }`).join(',\n  ')}
 ];
 `;
 
-// Write both files
-fs.writeFileSync(outputPath, tsContent);
 fs.writeFileSync(tidbitsArrayPath, tidbitsArrayContent);
 
 console.log('Successfully updated tidbits content and tidbits array');
