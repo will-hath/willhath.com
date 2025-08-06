@@ -14,7 +14,7 @@ export const tidbits = [
   },
   {
     date: `Saturday, May 10, 2025`,
-    text: `If you press the ]\`]\`.]\`]\` key while you have a PR open in github, it will open an in-browser vscode editor you can use to make edits.`
+    text: `If you press the ``.`` key while you have a PR open in github, it will open an in-browser vscode editor you can use to make edits.`
   },
   {
     date: `Sunday, May 4, 2025`,
@@ -160,7 +160,7 @@ export const tidbits = [
     date: `Monday, Mar 11, 2024`,
     text: `For any three variables $x,y,z$ that are all functions of each other
 $$
-\left(\frac{\partial x}{\partial y}\right)_z \left(\frac{\partial y}{\partial z}\right)_x \left(\frac{\partial z}{\partial x}\right)_y = -1
+\\left(\\frac{\\partial x}{\\partial y}\\right)_z \\left(\\frac{\\partial y}{\\partial z}\\right)_x \\left(\\frac{\\partial z}{\\partial x}\\right)_y = -1
 $$`
   },
   {
