@@ -14,7 +14,7 @@ export const tidbits = [
   },
   {
     date: `Saturday, May 10, 2025`,
-    text: `If you press the ``.`` key while you have a PR open in github, it will open an in-browser vscode editor you can use to make edits.`
+    text: `If you press the \`\`.\`\` key while you have a PR open in github, it will open an in-browser vscode editor you can use to make edits.`
   },
   {
     date: `Sunday, May 4, 2025`,
