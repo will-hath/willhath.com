@@ -5,6 +5,10 @@ export const tidbits = [
     text: `The “New 7 Wonders of the World” (Petra, Christ the Redeemer, Great Pyramids, Machu Picchu, Taj Mahal, Chichen ítza, Colosseum, and the Great Wall of China) was decided through an internet poll in 2001.`
   },
   {
+    date: `Tuesday, August 7, 2025`,
+    text: `For the first two weeks of August, there is no sales tax in In Ohio.`
+  },
+  {
     date: `Tuesday, July 8, 2025`,
     text: `In Nascar, the left wheel is smaller than the right wheel.`
   },
