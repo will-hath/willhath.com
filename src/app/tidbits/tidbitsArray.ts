@@ -1,6 +1,10 @@
 
 export const tidbits = [
   {
+    date: `Monday, August 19, 2025`,
+    text: `The phrase "many such cases" is a Trumpism.`
+  },
+  {
     date: `Wednesday, August 8, 2025`,
     text: `The “New 7 Wonders of the World” (Petra, Christ the Redeemer, Great Pyramids, Machu Picchu, Taj Mahal, Chichen ítza, Colosseum, and the Great Wall of China) was decided through an internet poll in 2001.`
   },
