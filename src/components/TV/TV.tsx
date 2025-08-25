@@ -66,10 +66,18 @@ const TV: React.FC<TVProps | null> = (props) => {
   }, [isInitialLoad, contents]);
 
   const handleClick = () => {
-    if (hasText && props?.href === "/quotes/") {
-      window.location.href = `/quotes/?quote=${currentIndex}`;
-    } else if (hasText && props?.href === "/tidbits/") {
-      window.location.href = `/tidbits/?tidbit=${currentIndex}`;
+    if (props?.href) {
+      if (hasText && props.href === "/quotes/") {
+        window.location.href = `/quotes/?quote=${currentIndex}`;
+      } else if (hasText && props.href === "/tidbits/") {
+        window.location.href = `/tidbits/?tidbit=${currentIndex}`;
+      } else {
+        // Handle external links and other internal routes
+        window.open(props.href, '_blank');
+      }
+      }
+    else {
+        window.location.href = `/gallery`;
     }
   };
 
