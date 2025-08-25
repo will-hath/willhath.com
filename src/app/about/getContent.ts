@@ -16,7 +16,7 @@ export function getAboutContent() {
 </ul>
 <h4>now</h4>
 <ul>
-<li>on indefinite leave from MIT to work at OpenAI</li>
+<li><del>on indefinite leave from MIT to work at OpenAI</del> back at MIT!</li>
 </ul>
 <h4>smalltalk</h4>
 <ul>
