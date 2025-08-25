@@ -1,6 +1,10 @@
 
 export const tidbits = [
   {
+    date: `Saturday, August 23, 2025`,
+    text: `Memories are stored by proteins in the brain.`
+  },
+  {
     date: `Monday, August 19, 2025`,
     text: `The phrase "many such cases" is a Trumpism.`
   },
