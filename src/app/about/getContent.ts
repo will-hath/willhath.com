@@ -1,6 +1,7 @@
 
 export function getAboutContent() {
-  return `<h4>contact</h4>
+  return `<p>quirked up white boy who wants to save the world.</p>
+<h4>contact</h4>
 <p>will hath at mit dot edu</p>
 <h4>institutions/locations</h4>
 <ul>
