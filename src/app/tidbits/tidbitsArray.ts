@@ -2,7 +2,7 @@
 export const tidbits = [
   {
     date: `Friday, August 29, 2025`,
-    text: `Ballet dancers "turnout" so their fe`
+    text: `Ballet dancers "turnout" (face their feet outwards, at a 180 degree angle) so that when they raise their legs,`
   },
   {
     date: `Saturday, August 23, 2025`,
