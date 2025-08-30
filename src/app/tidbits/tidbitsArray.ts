@@ -2,7 +2,7 @@
 export const tidbits = [
   {
     date: `Friday, August 29, 2025`,
-    text: `Ballet dancers "turnout" (face their feet outwards, at a 180 degree angle) so that when they raise their legs,`
+    text: `Ballet dancers turn out their feet (often close to 180°) so that when they lift a leg, the audience can see it clearly. Without turnout, the raised leg would be hidden from view when facing forward.`
   },
   {
     date: `Saturday, August 23, 2025`,
