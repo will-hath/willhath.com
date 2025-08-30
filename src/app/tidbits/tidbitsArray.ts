@@ -2,7 +2,7 @@
 export const tidbits = [
   {
     date: `Friday, August 29, 2025`,
-    text: `There are o`
+    text: `Ballet dancers "turnout" so their fe`
   },
   {
     date: `Saturday, August 23, 2025`,
