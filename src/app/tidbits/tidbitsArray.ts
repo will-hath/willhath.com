@@ -209,7 +209,7 @@ $$`
   },
   {
     date: `Thursday, Jan 25, 2024`,
-    text: `The tallest oil platform is 2100 ft tall! It’s called the [Petronius Compliant ](https://en.wikipedia.org/wiki/Petronius_(oil_platform))tower, and is in the Gulf of Mexico. Most of it is under water though.`
+    text: `The tallest oil platform in the world is 2100 ft tall! It’s called the [Petronius Compliant ](https://en.wikipedia.org/wiki/Petronius_(oil_platform))tower, and is in the Gulf of Mexico. Most of it is under water though.`
   },
   {
     date: `Wednesday, Jan 24, 2024`,
