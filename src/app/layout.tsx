@@ -7,12 +7,12 @@ const geist = Geist({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Finding Out',
-  description: 'Property of William Owen Hathaway. If lost, contact for reward.',
+  description: 'Property of William Owen Hathaway. If lost, return for a reward.',
   openGraph: {
     type: 'website',
     url: 'https://example.com', // Replace with your actual website URL
     title: 'Finding Out',
-    description: 'Property of William Owen Hathaway. If lost, contact for reward.',
+    description: 'Property of William Owen Hathaway. If lost, return for a reward.',
     images: [
       {
         url: '/assets/tv_static.gif', // Path to your GIF
@@ -23,7 +23,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Finding Out',
-    description: 'Property of William Owen Hathaway. If lost, contact for reward.',
+    description: 'Property of William Owen Hathaway. If found, return for a reward.',
     images: ['/assets/tv_static.gif'], // Path to your GIF
   },
 };
