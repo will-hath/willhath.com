@@ -193,7 +193,7 @@ $$`
   },
   {
     date: `Saturday, Feb 10, 2024`,
-    text: `You can easily switch the image type of an image on mac by going "right click->quick actions->convert image" in finder.`
+    text: `On a mac, you can easily convert an image from one format to another (ie, jpg -> png) by doing "right click->quick actions->convert image" in finder.`
   },
   {
     date: `Monday, Feb 5, 2024`,
