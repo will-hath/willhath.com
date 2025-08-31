@@ -60,9 +60,9 @@ export default function Home() {
   const mainContainerRef = useRef<HTMLElement>(null);
 
   const tvContents: (TVProps | null)[] = [
-    null, null, null, Substack, null, null, null,
-    null, null, Tidbits, null, Quotes, null, null,
-    null, null, null, null, null, null, null
+    null, null, Substack, null, null,
+    null, Tidbits, null, Quotes, null,
+    null, null, null, null, null
   ];
 
   useEffect(() => {
@@ -82,7 +82,7 @@ export default function Home() {
         <div className="grid-container">
           <TVGrid 
             rows={3} 
-            columns={7}
+            columns={5}
             tvContents={tvContents} />
         </div>
         <div className="foreground">
