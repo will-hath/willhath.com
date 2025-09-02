@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { quotes } from '@/app/quotes/quotesArray';
 import { tidbits } from '@/app/tidbits/tidbitsArray';
 
+
 const Tidbits: TVProps = {
   textSources: tidbits.map(tidbit => tidbit.text),
   name: "tidbits",
@@ -21,18 +22,6 @@ const Substack: TVProps = {
   name: "substack",
   href: "https://willhath.substack.com"
 }
- 
-// const Projects: TVProps = {
-//   imageSources: ["/assets/comingsoon.png"],
-//   name: "projects",
-//   href: "/projects/"
-// }
-
-// const Bookshelf: TVProps = {
-//   imageSources: ["/assets/comingsoon.png"],
-//   name: "bookshelf",
-//   href: "/bookshelf/"
-// }
 
 const Quotes: TVProps = {
   imageSources: ["/assets/comingsoon.png"],
@@ -115,6 +104,7 @@ export default function Home() {
                 />
               </a>
             </div>
+
         </div>
       </div>
     </main>
