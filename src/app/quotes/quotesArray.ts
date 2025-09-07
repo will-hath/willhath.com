@@ -1,7 +1,8 @@
 
 export const quotes = [
+  `> “When life gives you lemons, don't make lemonade. Make life take the lemons back!”`,
   `> “Where there's a **will**, there **hath** to be **a way**.”  
-> — _Owen Boxer_`,
+> — _Anonymous_`,
   `> “Fling yourself straight into life, without deliberation; don’t be afraid—the flood will bear you back to the bank and set you safe on your feet again.”  
 > — _Fyodor Dostoevsky, Crime and Punishment_`,
   `> “Alone, at the end of a universe humming a tune.”  
