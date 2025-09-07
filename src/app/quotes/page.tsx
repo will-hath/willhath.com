@@ -35,7 +35,7 @@ function QuotesContent() {
         const index = parseInt(quoteId);
         const quoteElement = quoteRefs.current[index];
         if (quoteElement) {
-          quoteElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          quoteElement.scrollIntoView({ behavior: 'instant', block: 'center' });
           // Add a highlight effect
           quoteElement.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
           setTimeout(() => {

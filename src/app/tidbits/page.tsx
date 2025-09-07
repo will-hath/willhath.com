@@ -17,7 +17,7 @@ function TidbitsContent() {
       const index = parseInt(tidbitId);
       const tidbitElement = tidbitRefs.current[index]
       if (tidbitElement) {
-        tidbitElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        tidbitElement.scrollIntoView({ behavior: 'instant', block: 'center' });
         // Add a highlight effect
         tidbitElement.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
         setTimeout(() => {
