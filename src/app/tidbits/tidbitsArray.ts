@@ -193,7 +193,7 @@ $$`
   },
   {
     date: `Saturday, Feb 10, 2024`,
-    text: `You can automatically switch the image type of an image on mac by going "right click->quick actions->convert image" in finder.`
+    text: `On a mac, you can easily convert an image from one format to another (ie, jpg -> png) by doing "right click->quick actions->convert image" in finder.`
   },
   {
     date: `Monday, Feb 5, 2024`,
@@ -209,7 +209,7 @@ $$`
   },
   {
     date: `Thursday, Jan 25, 2024`,
-    text: `The tallest oil platform is 2100 ft tall! It’s called the [Petronius Compliant ](https://en.wikipedia.org/wiki/Petronius_(oil_platform))tower, and is in the Gulf of Mexico. Most of it is under water though.`
+    text: `The tallest oil platform in the world is 2100 ft tall! It’s called the [Petronius Compliant ](https://en.wikipedia.org/wiki/Petronius_(oil_platform))tower, and is in the Gulf of Mexico. Most of it is under water though.`
   },
   {
     date: `Wednesday, Jan 24, 2024`,
