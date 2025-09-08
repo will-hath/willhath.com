@@ -1,6 +1,6 @@
 import React from 'react';
 import { Geist } from "next/font/google";
-// app/layout.js
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 const geist = Geist({ subsets: ['latin'] });
@@ -37,6 +37,7 @@ export default function RootLayout({
     <html lang="en" className={geist.className}>
       <body>
         {children}
+        <Analytics />
       </body>
     </html>
   );
