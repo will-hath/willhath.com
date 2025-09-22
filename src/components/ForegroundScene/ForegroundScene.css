@@ -1,0 +1,12 @@
+/* Foreground scene container that holds both desk and bookshelf */
+.foreground-scene {
+  position: relative;
+  height: 30vh;
+  width: 100%;
+  overflow: visible;
+  display: flex;
+  justify-content: center;  /* Centers flex children */
+  align-items: flex-end;   /* Aligns to bottom */
+  perspective: 1000px;
+  perspective-origin: center top; /* so we "look down" a bit */
+}

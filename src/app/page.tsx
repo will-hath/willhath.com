@@ -4,12 +4,9 @@ import { useEffect, useRef } from 'react';
 import TVGrid from '@/components/TVGrid/TVGrid';
 import './home.css';
 import { TVProps } from "@/types/types";
-import TV from '@/components/TV/TV';
-import Desk from '@/components/Desk/Desk';
-import Image from 'next/image';
 import { quotes } from '@/app/quotes/quotesArray';
 import { tidbits } from '@/app/tidbits/tidbitsArray';
-
+import ForegroundScene from '@/components/ForegroundScene/ForegroundScene';
 
 const Tidbits: TVProps = {
   textSources: tidbits.map(tidbit => tidbit.text),
@@ -28,20 +25,6 @@ const Quotes: TVProps = {
   textSources: quotes,
   name: "quotes",
   href: "/quotes/"
-}
-
-const LeftGroundTV: TVProps = {
-  imageSources: ["/assets/spruce.gif"],
-  name: "Spruce",
-  href: "https://spruce.world/",
-  hasAntennas: true
-}
-
-const RightGroundTV: TVProps = {
-  imageSources: ["/assets/atticus.gif"],
-  name: "Atticus",
-  href: "https://chry-santhemum.github.io/website/",
-  hasAntennas: true
 }
 
 
@@ -74,38 +57,7 @@ export default function Home() {
             columns={5}
             tvContents={tvContents} />
         </div>
-        <div className="foreground">
-          <Desk></Desk>
-          <div className="ground-tvs">
-            <div className="ground-tv">
-              <TV {...LeftGroundTV} />
-            </div>
-            <div className="ground-tv">
-              <TV {...RightGroundTV} />
-            </div>
-          </div>
-          <Image 
-            src="/assets/man_from_behind.png"
-            alt="Viewer"
-            className="viewer-image"
-            width={500}
-            height={800}
-            priority
-          />
-            <div className="nameplate-container">
-              <a href="/about/">
-                <Image
-                  src="/assets/nameplate.png"
-                  alt="Nameplate"
-                  className="nameplate"
-                  width={300}
-                  height={60}
-                  priority
-                />
-              </a>
-            </div>
-
-        </div>
+        <ForegroundScene></ForegroundScene>
       </div>
     </main>
   );
