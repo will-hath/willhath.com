@@ -1,6 +1,14 @@
 
 export const tidbits = [
   {
+    date: `Thursday, September 18, 2025`,
+    text: `The Germans conquered Denmark early in WW2. However, Denmark’s Jewish population survived the first 4 years of the war relatively unharmed, since Germany was reliant on Danish farmers for agricultural production and they were worried about sabotage.`
+  },
+  {
+    date: `Monday, September 8, 2025`,
+    text: `In 1943, during the height of WW2, the USA was producing 6-7 ships *per day*.`
+  },
+  {
     date: `Friday, August 29, 2025`,
     text: `Ballet dancers turn out their feet (often close to 180°) so that when they lift a leg, the audience can see it clearly. Without turnout, the raised leg would be hidden from view when facing forward.`
   },
