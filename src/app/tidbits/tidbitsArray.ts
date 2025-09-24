@@ -1,6 +1,10 @@
 
 export const tidbits = [
   {
+    date: `Tuesday, September 24, 2025`,
+    text: `Epic has never lost a customer.`
+  },
+  {
     date: `Thursday, September 18, 2025`,
     text: `The Germans conquered Denmark early in WW2. However, Denmark’s Jewish population survived the first 4 years of the war relatively unharmed, since Germany was reliant on Danish farmers for agricultural production and they were worried about sabotage.`
   },
