@@ -1,71 +1,12 @@
 .main-container {
     height: 100vh;
     width: 100%;
-    position: relative;
+    position: fixed;
     overflow-x: scroll;
     overflow-y: hidden;
     /* Center the content initially */
-    display: flex;
-    justify-content: left;
-  }
-
-.content-wrapper {
-  display: inline-block;
+    display: inline-block;
+    perspective: 2500px;
+    perspective-origin: center top; /* so we "look down" a bit */
 }
   
-.grid-container {
-  height: 70vh;
-  width: fit-content;
-  overflow: visible;
-}
-
-.foreground {
-  position: relative;
-  height: 30vh;
-  width: 100%;
-  overflow: visible;
-  display: flex;
-  justify-content: center;  /* Centers flex children */
-  align-items: flex-end;   /* Aligns to bottom */
-}
-
-.viewer-image {
-  height: 55vh;
-  min-height: 40vh;
-  bottom: 0;
-  width: auto;
-  min-width: max-content;
-  position: absolute;
-  z-index: 2;  /* This ensures the person is in front of the desk */
-  overflow: visible;
-}
-
-.nameplate-container {
-  position: absolute;
-  bottom: 6vh;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-}
-
-.nameplate {
-  height: 6vh;
-  width: auto;
-  border-radius: 5px;
-}
-
-.ground-tvs {
-  position: absolute;
-  bottom: 70%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 27%;
-  z-index: 3;
-}
-
-.ground-tv {
-  transform: scale(0.5);
-  transform-origin: bottom center;
-  position: relative;
-}

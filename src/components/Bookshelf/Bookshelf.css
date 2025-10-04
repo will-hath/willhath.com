@@ -3,10 +3,11 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 16.5%;
   height: 95vh;
+  aspect-ratio: 2/5;
   transform-style: preserve-3d;
-  transform: translateZ(5px)
+  transform: translateZ(-500px); 
+  /* TODO: decide what to do about bookshelf depth. Is it part of the foreground of background? */
 }
 
 .bookshelf-side {
