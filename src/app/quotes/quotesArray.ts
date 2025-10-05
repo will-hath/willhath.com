@@ -22,7 +22,7 @@ export const quotes = [
 > — _Robert Jordan, The Wheel of Time_`,
   `> “Blessed be the peacemakers, for they will be shot at from two sides.”  
 > — _Dan Carlin_`,
-  `> “There was truth and there was untruth, and if you clung to the truth, even against the whole world, you were not mad.”  
+  `> “There was truth and there was untruth, and if you clung to the truth, even against the whole world, you were not mad.”
 > — _George Orwell, 1984_`,
   `> “If people do not believe that mathematics is simple, it is only because they do not realize how complicated life is.”  
 > — _John von Neumann_`,
