@@ -2,7 +2,7 @@
 export const tidbits = [
   {
     date: `Tuesday, September 24, 2025`,
-    text: `Epic has never lost a customer.`
+    text: `The medical software company, Epic, has never lost a customer.`
   },
   {
     date: `Thursday, September 18, 2025`,
