@@ -1,6 +1,14 @@
 
 export const tidbits = [
   {
+    date: `Tuesday, October 21, 2025`,
+    text: `During the 1700s, it was common practice for rich households to sell their dried, used tea leaves to poor families.`
+  },
+  {
+    date: `Thursday, October 16, 2025`,
+    text: `In the 1700s, only ~5% of households in Amsterdam had forks. Most people ate their meals exclusively with knives and spoons.`
+  },
+  {
     date: `Tuesday, September 24, 2025`,
     text: `The medical software company, Epic, has never lost a customer.`
   },
