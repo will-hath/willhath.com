@@ -2,7 +2,7 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    font-family: var(--font-geist-sans), Arial, sans-serif;
+    font-family: var(--font-inter-sans), Arial, sans-serif;
     line-height: 1.6;
 }
 
@@ -17,7 +17,7 @@
     margin-top: 2rem;
     margin-bottom: 1rem;
     color: var(--foreground);
-    font-family: var(--font-geist-mono), monospace;
+    font-family: var(--font-inter-mono), monospace;
 }
 
 .main p {
