@@ -2,7 +2,7 @@
 export const tidbits = [
   {
     date: `Thursday, November 20, 2025`,
-    text: `In p`
+    text: `In Physics,`
   },
   {
     date: `Tuesday, October 21, 2025`,
