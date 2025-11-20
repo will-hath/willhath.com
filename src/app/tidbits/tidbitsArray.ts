@@ -1,6 +1,10 @@
 
 export const tidbits = [
   {
+    date: `Thursday, November 20, 2025`,
+    text: `In p`
+  },
+  {
     date: `Tuesday, October 21, 2025`,
     text: `During the 1700s, it was common practice for rich households to sell their dried, used tea leaves to poor families.`
   },
