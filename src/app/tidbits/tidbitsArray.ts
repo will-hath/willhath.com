@@ -2,7 +2,7 @@
 export const tidbits = [
   {
     date: `Thursday, November 20, 2025`,
-    text: `In Physics,`
+    text: `In scientific parlance, they often use the term "decade" to mean "spanning one "`
   },
   {
     date: `Tuesday, October 21, 2025`,
