@@ -2,7 +2,7 @@
 export const tidbits = [
   {
     date: `Thursday, November 20, 2025`,
-    text: `In scientific parlance, they often use the term "decade" to mean "an interval ranging from one unit to 10x that unit", ie, an order of magnitude. So if you wa`
+    text: `In scientific parlance, they often use the term decade to mean "an interval ranging from one unit to 10x that unit", ie, an order of magnitude. Basically, decade is a synonym for oom.`
   },
   {
     date: `Tuesday, October 21, 2025`,
