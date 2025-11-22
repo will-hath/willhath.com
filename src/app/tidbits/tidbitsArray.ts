@@ -1,6 +1,10 @@
 
 export const tidbits = [
   {
+    date: `Friday, November 21, 2025`,
+    text: `Japan has a big bear problem. There have been over 150 bear injuries this year, and a do`
+  },
+  {
     date: `Thursday, November 20, 2025`,
     text: `In scientific parlance, people often use *decade* to refer to order of magnitude. Ie, if you're measuring voltages from 1v to 1000v, you're measuring across *three decades*.`
   },
