@@ -2,7 +2,7 @@
 export const tidbits = [
   {
     date: `Friday, November 21, 2025`,
-    text: `Japan has a big bear problem. There have been over 150 bear injuries this year, and a do`
+    text: `Japan has a big bear problem. There have been over 150 bear injuries this year, and a dozen deaths. For context, the USA has ~1 bear death/year.`
   },
   {
     date: `Thursday, November 20, 2025`,
