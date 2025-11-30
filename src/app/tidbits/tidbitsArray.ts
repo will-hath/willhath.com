@@ -2,7 +2,7 @@
 export const tidbits = [
   {
     date: `Sunday, November 30, 2025`,
-    text: `At 300 trillion barrels, Venezuela has the most "proven" oil reserves of any country. Saudia Arabia is next at 270 TB and then Iran at 200 TB`
+    text: `At 300 trillion barrels, Venezuela has the most "proven" oil reserves of any country. Saudia Arabia is next at 270 tB and then Iran at 200 tB.`
   },
   {
     date: `Friday, November 21, 2025`,
