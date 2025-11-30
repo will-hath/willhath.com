@@ -1,6 +1,10 @@
 
 export const tidbits = [
   {
+    date: `Sunday, November 30, 2025`,
+    text: `At 300,000,000,000 barrels, Venezuela has the`
+  },
+  {
     date: `Friday, November 21, 2025`,
     text: `Japan has a big bear problem. There have been over 150 bear injuries this year, and a dozen deaths. For context, the USA has ~1 bear death/year.`
   },
