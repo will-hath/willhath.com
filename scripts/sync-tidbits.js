@@ -9,7 +9,6 @@ const tidbitsArrayPath = path.join(__dirname, '..', 'src', 'app', 'tidbits', 'ti
 // Read and convert markdown
 const markdownContent = fs.readFileSync(markdownPath, 'utf-8');
 
-
 // Extract tidbits as objects with date and text
 const tidbits = markdownContent
   .split('####')
