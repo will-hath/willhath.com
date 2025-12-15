@@ -1,6 +1,26 @@
 
 export const tidbits = [
   {
+    date: `Sunday, November 30, 2025`,
+    text: `At 300 trillion barrels, Venezuela has the most "proven" oil reserves of any country. Saudia Arabia is next at 270 tB and then Iran at 200 tB.`
+  },
+  {
+    date: `Friday, November 21, 2025`,
+    text: `Japan has a big bear problem. There have been over 150 bear injuries this year, and a dozen deaths. For context, the USA has ~1 bear death/year.`
+  },
+  {
+    date: `Thursday, November 20, 2025`,
+    text: `In scientific parlance, people often use *decade* to refer to order of magnitude. Ie, if you're measuring voltages from 1v to 1000v, you're measuring across *three decades*.`
+  },
+  {
+    date: `Tuesday, October 21, 2025`,
+    text: `During the 1700s, it was common practice for rich households to sell their dried, used tea leaves to poor families.`
+  },
+  {
+    date: `Thursday, October 16, 2025`,
+    text: `In the 1700s, only ~5% of households in Amsterdam had forks. Most people ate their meals exclusively with knives and spoons.`
+  },
+  {
     date: `Tuesday, September 24, 2025`,
     text: `The medical software company, Epic, has never lost a customer.`
   },
