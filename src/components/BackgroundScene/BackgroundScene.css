@@ -1,10 +1,12 @@
-/* Background scene container that holds TV grid and bookshelf */
+/* Background scene container that holds TV grid */
 .background-scene {
     transform-style: preserve-3d;
-}
+    width: calc(100%);
+}f
 
 .grid-container {
   height: 70vh;
   width: fit-content;
   overflow: visible;
+
 }

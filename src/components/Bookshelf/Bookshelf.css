@@ -1,12 +1,11 @@
 /* Bookshelf - positioned to the right of the desk in the same 3D space */
 .bookshelf {
   position: absolute;
-  right: 0;
   bottom: 0;
+  left: calc(50% + 500px + 30px);
   height: 95vh;
   aspect-ratio: 2/5;
   transform-style: preserve-3d;
-  transform: translateZ(-500px); 
   /* TODO: decide what to do about bookshelf depth. Is it part of the foreground of background? */
 }
 
@@ -30,7 +29,17 @@
   height: 100%;
   background: #5e2e0c;
   border: 2px solid var(--light-wood);
-  border-radius: 2px;
+}
+
+.bookshelf-top {
+  position: absolute;
+  bottom: 100%;
+  background: #5e2e0c;
+  border: 2px solid var(--light-wood);
+  width: 100%;
+  height: 100px;
+  transform-origin: bottom;
+  transform: rotateX(90deg)
 }
 
 .shelf {

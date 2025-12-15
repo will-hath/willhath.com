@@ -1,6 +1,5 @@
 import React from 'react';
 import TVGrid from '@/components/TVGrid/TVGrid';
-import Bookshelf from '@/components/Bookshelf/Bookshelf';
 import './BackgroundScene.css';
 import { TVProps } from "@/types/types";
 import { quotes } from '@/app/quotes/quotesArray';
@@ -27,9 +26,9 @@ const Quotes: TVProps = {
 
 const BackgroundScene = () => {
   const tvContents: (TVProps | null)[] = [
-    null, null, Substack, null,
-    null, Tidbits, null, Quotes,
-    null, null, null, null
+    null, null, Substack, null, null,
+    null, Tidbits, null, Quotes, null,
+    null, null, null, null, null
   ];
 
   return (
@@ -37,10 +36,9 @@ const BackgroundScene = () => {
       <div className="grid-container">
         <TVGrid 
           rows={3} 
-          columns={4}
+          columns={5}
           tvContents={tvContents} />
       </div>
-      <Bookshelf />
     </div>
   );
 };

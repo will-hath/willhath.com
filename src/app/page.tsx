@@ -20,7 +20,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="main-container" ref={mainContainerRef} style={{ outline: '2px solid red' }}>
+    <main className="main-container" ref={mainContainerRef}>
       <BackgroundScene />
       <ForegroundScene />
     </main>

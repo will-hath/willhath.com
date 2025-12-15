@@ -2,7 +2,9 @@
 .desk-box {
   width: 1000px;   /* Desk width */
   height: 100%;  /* Allow it to fill the full height of the foreground*/
-
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 500px);
   transform-style: preserve-3d;
 }
 

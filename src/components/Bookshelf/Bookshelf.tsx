@@ -39,6 +39,7 @@ const Bookshelf = () => {
     <div className="bookshelf">
       <div className="bookshelf-side"></div>
       <div className="bookshelf-front"></div>
+      <div className="bookshelf-top"></div>
       
       {bookshelves.map((books, index) => (
         <div key={index} className="shelf" style={{ bottom: shelfHeights[index] }}>
