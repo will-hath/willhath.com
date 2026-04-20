@@ -2,7 +2,7 @@
 export const tidbits = [
   {
     date: `Monday, April 20, 2026`,
-    text: `Cabbage, Brussel`
+    text: `Cabbage, Brussels Sprouts, Kohlrabi, Cauliflower, Brocolli, and`
   },
   {
     date: `Sunday, November 30, 2025`,
