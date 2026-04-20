@@ -1,6 +1,10 @@
 
 export const tidbits = [
   {
+    date: `Monday, April 20, 2026`,
+    text: `Cabbage, Brussel`
+  },
+  {
     date: `Sunday, November 30, 2025`,
     text: `At 300 trillion barrels, Venezuela has the most "proven" oil reserves of any country. Saudia Arabia is next at 270 tB and then Iran at 200 tB.`
   },
