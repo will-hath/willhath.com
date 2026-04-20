@@ -2,7 +2,7 @@
 export const tidbits = [
   {
     date: `Monday, April 20, 2026`,
-    text: `Cabbage, Brussels Sprouts, Kohlrabi, Cauliflower, Brocolli, and`
+    text: `Cabbage, Brussels Sprouts, Kohlrabi, Cauliflower, Broccolli, and Kale are all different variants of the same species of plant, *Brassica Oleracea*.`
   },
   {
     date: `Sunday, November 30, 2025`,
