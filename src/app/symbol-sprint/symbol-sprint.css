@@ -279,7 +279,7 @@
 }
 
 .countdown-panel {
-  gap: 0.8rem;
+  gap: 1.25rem;
   color: var(--muted);
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -287,12 +287,25 @@
 }
 
 .countdown-number {
+  display: grid;
+  width: clamp(7.5rem, 28vw, 11rem);
+  aspect-ratio: 1;
+  place-items: center;
+  padding-bottom: 0.06em;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
   color: var(--ink);
+  background: var(--signal);
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(7rem, 24vw, 13rem);
+  font-size: clamp(4.5rem, 14vw, 7rem);
   font-weight: 600;
-  letter-spacing: -0.08em;
-  line-height: 0.8;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.countdown-label {
+  display: block;
+  line-height: 1.2;
 }
 
 .running-panel {

@@ -79,25 +79,16 @@ function hashString(value: string) {
   return hash >>> 0;
 }
 
-function seededRandom(seed: number) {
-  let currentSeed = seed;
-
-  return () => {
-    currentSeed += 0x6d2b79f5;
-    let value = currentSeed;
-    value = Math.imul(value ^ (value >>> 15), value | 1);
-    value ^= value + Math.imul(value ^ (value >>> 7), value | 61);
-    return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-function makeDailyKey(dateKey: string): DailyKeyItem[] {
+function makeRandomKey(previousKey?: DailyKeyItem[]): DailyKeyItem[] {
   const digits = Array.from({ length: 9 }, (_, index) => index + 1);
-  const random = seededRandom(hashString(`daily-symbol-sprint:${dateKey}`));
 
   for (let index = digits.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(random() * (index + 1));
+    const swapIndex = Math.floor(Math.random() * (index + 1));
     [digits[index], digits[swapIndex]] = [digits[swapIndex], digits[index]];
+  }
+
+  if (previousKey && digits.every((digit, index) => digit === previousKey[index].digit)) {
+    [digits[0], digits[1]] = [digits[1], digits[0]];
   }
 
   return SYMBOLS.map((symbol, index) => ({
@@ -187,6 +178,9 @@ export default function SymbolSprint() {
   const [history, setHistory] = useState<RunResult[]>([]);
   const [lastResult, setLastResult] = useState<RunResult | null>(null);
   const [storageAvailable, setStorageAvailable] = useState(true);
+  const [symbolKey, setSymbolKey] = useState<DailyKeyItem[]>(() =>
+    SYMBOLS.map((symbol, index) => ({ ...symbol, digit: index + 1 })),
+  );
 
   const deadlineRef = useRef(0);
   const trialStartedAtRef = useRef(0);
@@ -199,13 +193,13 @@ export default function SymbolSprint() {
     timeBuckets: makeEmptyTimeBuckets(),
   });
 
-  const dailyKey = useMemo(() => makeDailyKey(dateKey), [dateKey]);
-  const orderedDailyKey = useMemo(() => [...dailyKey].sort((a, b) => a.digit - b.digit), [dailyKey]);
-  const prompt = dailyKey[promptIndex];
+  const orderedSymbolKey = useMemo(() => [...symbolKey].sort((a, b) => a.digit - b.digit), [symbolKey]);
+  const prompt = symbolKey[promptIndex];
 
   useEffect(() => {
     const now = new Date();
     setDateKey(getLocalDateKey(now));
+    setSymbolKey(makeRandomKey());
     setDateLabel(
       new Intl.DateTimeFormat(undefined, {
         weekday: 'long',
@@ -299,6 +293,10 @@ export default function SymbolSprint() {
   const startRun = () => {
     if (dateKey === 'loading') return;
 
+    if (phase === 'complete') {
+      setSymbolKey((currentKey) => makeRandomKey(currentKey));
+    }
+
     countersRef.current = {
       correct: 0,
       errors: 0,
@@ -325,7 +323,7 @@ export default function SymbolSprint() {
         return;
       }
 
-      const wasCorrect = digit === dailyKey[promptIndex].digit;
+      const wasCorrect = digit === symbolKey[promptIndex].digit;
       const nextCounters = countersRef.current;
       const elapsedMs = TEST_SECONDS * 1000 - Math.max(0, deadlineRef.current - now);
       const bucketIndex = Math.min(BUCKET_COUNT - 1, Math.floor(elapsedMs / (BUCKET_SECONDS * 1000)));
@@ -347,7 +345,7 @@ export default function SymbolSprint() {
       trialStartedAtRef.current = now;
       setPromptIndex((current) => pickPrompt(current));
     },
-    [dailyKey, finishRun, phase, promptIndex],
+    [finishRun, phase, promptIndex, symbolKey],
   );
 
   useEffect(() => {
@@ -413,22 +411,24 @@ export default function SymbolSprint() {
         <p className="eyebrow">Processing speed · visual scanning · attention</p>
         <h1 id="sprint-title">Daily Symbol Sprint</h1>
         <p className="lede">
-          Match each symbol to its number as quickly and accurately as you can. Today’s key is unique and stays
-          fixed for the day, so every answer comes from the same map.
+          Match each symbol to its number as quickly and accurately as you can. Every run gets a fresh randomized
+          key, which stays fixed until that run ends.
         </p>
       </section>
 
       <section className="test-card" aria-label="Daily symbol test">
         <div className="key-heading">
           <div>
-            <span className="section-label">Today’s key</span>
-            <span className="key-id">#{hashString(dateKey).toString(16).slice(0, 4).toUpperCase()}</span>
+            <span className="section-label">Run key</span>
+            <span className="key-id">
+              #{hashString(symbolKey.map((item) => item.digit).join('')).toString(16).slice(0, 4).toUpperCase()}
+            </span>
           </div>
-          <span className="key-note">Changes at midnight</span>
+          <span className="key-note">New random key each run</span>
         </div>
 
         <div className="symbol-key" aria-label="Symbol to number key">
-          {orderedDailyKey.map((item) => (
+          {orderedSymbolKey.map((item) => (
             <div className="key-item" key={item.id}>
               <span className="key-symbol" aria-hidden="true">
                 {item.glyph}
@@ -454,7 +454,7 @@ export default function SymbolSprint() {
           {phase === 'countdown' && (
             <div className="countdown-panel" aria-live="assertive">
               <span className="countdown-number">{countdown}</span>
-              <span>Get ready</span>
+              <span className="countdown-label">Get ready</span>
             </div>
           )}
 
