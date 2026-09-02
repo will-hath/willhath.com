@@ -544,56 +544,66 @@
   text-transform: uppercase;
 }
 
-.chart-columns {
-  display: grid;
-  height: 13rem;
-  grid-template-columns: repeat(6, 1fr);
-  gap: clamp(0.4rem, 2vw, 0.9rem);
-  align-items: end;
-  padding: 0.8rem 0.8rem 0;
+.line-chart-plot {
+  width: 100%;
   border-bottom: 2px solid var(--ink);
-  background: linear-gradient(to bottom, rgba(24, 22, 17, 0.08) 1px, transparent 1px);
-  background-size: 100% 25%;
 }
 
-.chart-column {
+.line-chart-plot svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.learning-gridline {
+  stroke: rgba(24, 22, 17, 0.12);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.learning-line {
+  fill: none;
+  stroke: var(--sage);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.learning-point {
+  fill: var(--paper);
+  stroke: var(--sage);
+  stroke-width: 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.learning-point--first {
+  stroke: var(--muted);
+}
+
+.learning-point--last {
+  fill: var(--signal);
+  stroke: var(--signal-deep);
+}
+
+.line-chart-labels {
   display: grid;
-  height: 100%;
-  grid-template-rows: 1.2rem 1fr auto auto;
+  grid-template-columns: repeat(6, 1fr);
   gap: 0.25rem;
-  align-items: end;
+  padding-top: 0.5rem;
+}
+
+.line-chart-labels > div {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
   text-align: center;
 }
 
-.chart-value {
-  align-self: center;
+.line-chart-labels strong {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.78rem;
-  font-weight: 800;
-}
-
-.chart-track {
-  position: relative;
-  width: min(100%, 4.2rem);
-  height: 100%;
-  justify-self: center;
-}
-
-.chart-bar {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  min-height: 0;
-  background: var(--sage);
-}
-
-.chart-column--first .chart-bar {
-  background: var(--muted);
-}
-
-.chart-column--last .chart-bar {
-  background: var(--signal-deep);
+  font-size: 0.8rem;
 }
 
 .chart-time,
@@ -605,7 +615,6 @@
 }
 
 .chart-accuracy {
-  padding-bottom: 0.45rem;
   font-size: 0.62rem;
 }
 
@@ -828,17 +837,11 @@
     border-bottom: 0;
   }
 
-  .chart-columns {
-    height: 11rem;
-    gap: 0.3rem;
-    padding-inline: 0.25rem;
-  }
-
   .chart-time {
     font-size: 0.58rem;
   }
 
-  .chart-accuracy {
+  .line-chart-labels .chart-accuracy {
     display: none;
   }
 

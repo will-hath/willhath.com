@@ -384,6 +384,11 @@ export default function SymbolSprint() {
       ? Math.round((endpointDelta / firstBucket.correct) * 100)
       : null;
   const chartMaximum = Math.max(1, ...resultBuckets.map((bucket) => bucket.correct));
+  const chartPoints = resultBuckets.map((bucket, index) => ({
+    x: 24 + (index / Math.max(1, resultBuckets.length - 1)) * 552,
+    y: 140 - (bucket.correct / chartMaximum) * 116,
+  }));
+  const chartPolyline = chartPoints.map((point) => `${point.x},${point.y}`).join(' ');
 
   const clearHistory = () => {
     try {
@@ -549,23 +554,31 @@ export default function SymbolSprint() {
                   >
                     <div className="chart-heading" aria-hidden="true">
                       <span>Correct answers</span>
-                      <span>Each bar = 15 seconds</span>
+                      <span>Each point = 15 seconds</span>
                     </div>
-                    <div className="chart-columns" aria-hidden="true">
+                    <div className="line-chart-plot" aria-hidden="true">
+                      <svg viewBox="0 0 600 160" preserveAspectRatio="xMidYMid meet">
+                        {[24, 62.7, 101.3, 140].map((y) => (
+                          <line className="learning-gridline" x1="24" x2="576" y1={y} y2={y} key={y} />
+                        ))}
+                        <polyline className="learning-line" points={chartPolyline} />
+                        {chartPoints.map((point, index) => (
+                          <circle
+                            className={`learning-point${index === 0 ? ' learning-point--first' : ''}${
+                              index === chartPoints.length - 1 ? ' learning-point--last' : ''
+                            }`}
+                            cx={point.x}
+                            cy={point.y}
+                            r="7"
+                            key={`${point.x}-${point.y}`}
+                          />
+                        ))}
+                      </svg>
+                    </div>
+                    <div className="line-chart-labels" aria-hidden="true">
                       {resultBuckets.map((bucket, index) => (
-                        <div
-                          className={`chart-column${index === 0 ? ' chart-column--first' : ''}${
-                            index === resultBuckets.length - 1 ? ' chart-column--last' : ''
-                          }`}
-                          key={`${index}-${bucket.attempted}-${bucket.correct}`}
-                        >
-                          <span className="chart-value">{bucket.correct}</span>
-                          <div className="chart-track">
-                            <span
-                              className="chart-bar"
-                              style={{ height: `${(bucket.correct / chartMaximum) * 100}%` }}
-                            />
-                          </div>
+                        <div key={`${index}-${bucket.attempted}-${bucket.correct}`}>
+                          <strong>{bucket.correct}</strong>
                           <span className="chart-time">
                             {index * BUCKET_SECONDS}–{(index + 1) * BUCKET_SECONDS}s
                           </span>
