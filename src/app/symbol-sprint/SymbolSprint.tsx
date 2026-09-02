@@ -159,6 +159,7 @@ export default function SymbolSprint() {
   });
 
   const dailyKey = useMemo(() => makeDailyKey(dateKey), [dateKey]);
+  const orderedDailyKey = useMemo(() => [...dailyKey].sort((a, b) => a.digit - b.digit), [dailyKey]);
   const prompt = dailyKey[promptIndex];
 
   useEffect(() => {
@@ -358,7 +359,7 @@ export default function SymbolSprint() {
         </div>
 
         <div className="symbol-key" aria-label="Symbol to number key">
-          {dailyKey.map((item) => (
+          {orderedDailyKey.map((item) => (
             <div className="key-item" key={item.id}>
               <span className="key-symbol" aria-hidden="true">
                 {item.glyph}
