@@ -186,10 +186,17 @@
 }
 
 .ready-panel,
-.countdown-panel,
-.results-panel {
+.countdown-panel {
   display: flex;
   max-width: 34rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.results-panel {
+  display: flex;
+  width: min(100%, 50rem);
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -433,6 +440,182 @@
   color: var(--muted);
 }
 
+.learning-panel {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(24, 22, 17, 0.2);
+  text-align: left;
+}
+
+.learning-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.learning-heading .section-label {
+  margin-bottom: 0.2rem;
+}
+
+.learning-heading h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.learning-rate {
+  display: grid;
+  min-width: 10rem;
+  gap: 0.15rem;
+  text-align: right;
+}
+
+.learning-rate span,
+.window-comparison span {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.learning-rate strong {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1.8rem;
+}
+
+.learning-rate small,
+.window-comparison small {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.window-comparison {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 1.25rem 0 1.5rem;
+  border-block: 1px solid rgba(24, 22, 17, 0.17);
+}
+
+.window-comparison > div {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.9rem 1rem;
+  border-right: 1px solid rgba(24, 22, 17, 0.17);
+}
+
+.window-comparison > div:first-child {
+  padding-left: 0;
+}
+
+.window-comparison > div:last-child {
+  padding-right: 0;
+  border-right: 0;
+  text-align: right;
+}
+
+.window-comparison .comparison-change {
+  text-align: center;
+}
+
+.window-comparison strong {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1rem;
+}
+
+.learning-chart {
+  width: 100%;
+}
+
+.chart-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.chart-columns {
+  display: grid;
+  height: 13rem;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(0.4rem, 2vw, 0.9rem);
+  align-items: end;
+  padding: 0.8rem 0.8rem 0;
+  border-bottom: 2px solid var(--ink);
+  background: linear-gradient(to bottom, rgba(24, 22, 17, 0.08) 1px, transparent 1px);
+  background-size: 100% 25%;
+}
+
+.chart-column {
+  display: grid;
+  height: 100%;
+  grid-template-rows: 1.2rem 1fr auto auto;
+  gap: 0.25rem;
+  align-items: end;
+  text-align: center;
+}
+
+.chart-value {
+  align-self: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.chart-track {
+  position: relative;
+  width: min(100%, 4.2rem);
+  height: 100%;
+  justify-self: center;
+}
+
+.chart-bar {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 0;
+  background: var(--sage);
+}
+
+.chart-column--first .chart-bar {
+  background: var(--muted);
+}
+
+.chart-column--last .chart-bar {
+  background: var(--signal-deep);
+}
+
+.chart-time,
+.chart-accuracy {
+  color: var(--muted);
+  font-size: 0.67rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.chart-accuracy {
+  padding-bottom: 0.45rem;
+  font-size: 0.62rem;
+}
+
+.learning-explainer {
+  margin: 1rem 0 0 !important;
+  color: var(--muted) !important;
+  font-size: 0.78rem !important;
+  line-height: 1.5 !important;
+}
+
 .history-card {
   margin-top: 1.5rem;
   padding: clamp(1.25rem, 4vw, 2rem);
@@ -504,6 +687,12 @@
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 2.2rem;
   font-weight: 500;
+}
+
+.summary-strip small {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
 }
 
 .history-table-wrap {
@@ -611,6 +800,46 @@
   .result-grid,
   .summary-strip {
     grid-template-columns: 1fr;
+  }
+
+  .learning-heading {
+    align-items: end;
+  }
+
+  .learning-rate {
+    min-width: 7rem;
+  }
+
+  .window-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .window-comparison > div,
+  .window-comparison > div:first-child,
+  .window-comparison > div:last-child,
+  .window-comparison .comparison-change {
+    padding: 0.7rem 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(24, 22, 17, 0.14);
+    text-align: left;
+  }
+
+  .window-comparison > div:last-child {
+    border-bottom: 0;
+  }
+
+  .chart-columns {
+    height: 11rem;
+    gap: 0.3rem;
+    padding-inline: 0.25rem;
+  }
+
+  .chart-time {
+    font-size: 0.58rem;
+  }
+
+  .chart-accuracy {
+    display: none;
   }
 
   .summary-strip > div,
