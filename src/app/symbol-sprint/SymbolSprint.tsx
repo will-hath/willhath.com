@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 const TEST_SECONDS = 90;
+const BUCKET_SECONDS = 15;
+const BUCKET_COUNT = TEST_SECONDS / BUCKET_SECONDS;
 const HISTORY_KEY = 'willhath-symbol-sprint-history-v1';
 
 const SYMBOLS = [
@@ -33,6 +35,14 @@ type RunResult = {
   attempted: number;
   accuracy: number;
   medianResponseMs: number;
+  timeBuckets?: TimeBucket[];
+  learningRate?: number | null;
+};
+
+type TimeBucket = {
+  correct: number;
+  errors: number;
+  attempted: number;
 };
 
 type Counters = {
@@ -40,7 +50,16 @@ type Counters = {
   errors: number;
   attempted: number;
   responseTimes: number[];
+  timeBuckets: TimeBucket[];
 };
+
+function makeEmptyTimeBuckets(): TimeBucket[] {
+  return Array.from({ length: BUCKET_COUNT }, () => ({
+    correct: 0,
+    errors: 0,
+    attempted: 0,
+  }));
+}
 
 function getLocalDateKey(date = new Date()) {
   const year = date.getFullYear();
@@ -110,6 +129,27 @@ function median(values: number[]) {
   return Math.round(sorted[middle]);
 }
 
+function calculateLearningRate(timeBuckets: TimeBucket[]) {
+  const firstBucket = timeBuckets[0];
+  const lastBucket = timeBuckets[timeBuckets.length - 1];
+
+  if (!firstBucket || !lastBucket || firstBucket.correct === 0) return null;
+  return Math.round((lastBucket.correct / firstBucket.correct) * 100) / 100;
+}
+
+function bucketAccuracy(bucket: TimeBucket) {
+  return bucket.attempted === 0 ? 0 : Math.round((bucket.correct / bucket.attempted) * 100);
+}
+
+function formatSigned(value: number, decimals = 0) {
+  const rounded = value.toFixed(decimals);
+  return value > 0 ? `+${rounded}` : rounded;
+}
+
+function formatLearningRate(value: number | null | undefined) {
+  return value === null || value === undefined ? '—' : `${value.toFixed(2)}×`;
+}
+
 function isRunResult(value: unknown): value is RunResult {
   if (!value || typeof value !== 'object') return false;
   const result = value as Partial<RunResult>;
@@ -156,6 +196,7 @@ export default function SymbolSprint() {
     errors: 0,
     attempted: 0,
     responseTimes: [],
+    timeBuckets: makeEmptyTimeBuckets(),
   });
 
   const dailyKey = useMemo(() => makeDailyKey(dateKey), [dateKey]);
@@ -191,6 +232,7 @@ export default function SymbolSprint() {
     finishedRef.current = true;
 
     const counters = countersRef.current;
+    const timeBuckets = counters.timeBuckets.map((bucket) => ({ ...bucket }));
     const result: RunResult = {
       id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
       dateKey,
@@ -200,6 +242,8 @@ export default function SymbolSprint() {
       attempted: counters.attempted,
       accuracy: counters.attempted === 0 ? 0 : Math.round((counters.correct / counters.attempted) * 100),
       medianResponseMs: median(counters.responseTimes),
+      timeBuckets,
+      learningRate: calculateLearningRate(timeBuckets),
     };
 
     setTimeRemainingMs(0);
@@ -260,6 +304,7 @@ export default function SymbolSprint() {
       errors: 0,
       attempted: 0,
       responseTimes: [],
+      timeBuckets: makeEmptyTimeBuckets(),
     };
     finishedRef.current = false;
     setCorrect(0);
@@ -282,14 +327,20 @@ export default function SymbolSprint() {
 
       const wasCorrect = digit === dailyKey[promptIndex].digit;
       const nextCounters = countersRef.current;
+      const elapsedMs = TEST_SECONDS * 1000 - Math.max(0, deadlineRef.current - now);
+      const bucketIndex = Math.min(BUCKET_COUNT - 1, Math.floor(elapsedMs / (BUCKET_SECONDS * 1000)));
+      const timeBucket = nextCounters.timeBuckets[bucketIndex];
       nextCounters.attempted += 1;
       nextCounters.responseTimes.push(now - trialStartedAtRef.current);
+      timeBucket.attempted += 1;
 
       if (wasCorrect) {
         nextCounters.correct += 1;
+        timeBucket.correct += 1;
         setCorrect(nextCounters.correct);
       } else {
         nextCounters.errors += 1;
+        timeBucket.errors += 1;
         setErrors(nextCounters.errors);
       }
 
@@ -314,12 +365,25 @@ export default function SymbolSprint() {
   }, [answer, phase]);
 
   const recentRuns = history.slice(0, 7);
-  const personalBest = history.length > 0 ? Math.max(...history.map((result) => result.correct)) : null;
+  const bestRun = history.reduce<RunResult | null>(
+    (best, result) => (!best || result.correct > best.correct ? result : best),
+    null,
+  );
+  const personalBest = bestRun?.correct ?? null;
   const recentAverage =
     recentRuns.length > 0
       ? Math.round(recentRuns.reduce((total, result) => total + result.correct, 0) / recentRuns.length)
       : null;
   const displayedSeconds = Math.max(0, Math.ceil(timeRemainingMs / 100) / 10).toFixed(1);
+  const resultBuckets = lastResult?.timeBuckets ?? [];
+  const firstBucket = resultBuckets[0];
+  const lastBucket = resultBuckets[resultBuckets.length - 1];
+  const endpointDelta = firstBucket && lastBucket ? lastBucket.correct - firstBucket.correct : 0;
+  const endpointPercent =
+    firstBucket && lastBucket && firstBucket.correct > 0
+      ? Math.round((endpointDelta / firstBucket.correct) * 100)
+      : null;
+  const chartMaximum = Math.max(1, ...resultBuckets.map((bucket) => bucket.correct));
 
   const clearHistory = () => {
     try {
@@ -444,6 +508,80 @@ export default function SymbolSprint() {
                   <strong>{(lastResult.medianResponseMs / 1000).toFixed(2)}s</strong>
                 </div>
               </div>
+              {firstBucket && lastBucket && lastResult.learningRate !== undefined && (
+                <section className="learning-panel" aria-labelledby="learning-title">
+                  <div className="learning-heading">
+                    <div>
+                      <p className="section-label">Within-run change</p>
+                      <h2 id="learning-title">How your pace changed</h2>
+                    </div>
+                    <div className="learning-rate">
+                      <span>Learning rate</span>
+                      <strong>{formatLearningRate(lastResult.learningRate)}</strong>
+                      <small>last 15s ÷ first 15s</small>
+                    </div>
+                  </div>
+
+                  <div className="window-comparison">
+                    <div>
+                      <span>First 15 seconds</span>
+                      <strong>{firstBucket.correct} correct</strong>
+                      <small>{bucketAccuracy(firstBucket)}% accuracy</small>
+                    </div>
+                    <div className="comparison-change">
+                      <span>First → last</span>
+                      <strong>{formatSigned(endpointDelta)} correct</strong>
+                      <small>{endpointPercent === null ? 'No percentage baseline' : `${formatSigned(endpointPercent)}%`}</small>
+                    </div>
+                    <div>
+                      <span>Last 15 seconds</span>
+                      <strong>{lastBucket.correct} correct</strong>
+                      <small>{bucketAccuracy(lastBucket)}% accuracy</small>
+                    </div>
+                  </div>
+
+                  <div
+                    className="learning-chart"
+                    role="img"
+                    aria-label={`Correct answers in consecutive 15-second blocks: ${resultBuckets
+                      .map((bucket) => bucket.correct)
+                      .join(', ')}. The learning rate is ${formatLearningRate(lastResult.learningRate)}.`}
+                  >
+                    <div className="chart-heading" aria-hidden="true">
+                      <span>Correct answers</span>
+                      <span>Each bar = 15 seconds</span>
+                    </div>
+                    <div className="chart-columns" aria-hidden="true">
+                      {resultBuckets.map((bucket, index) => (
+                        <div
+                          className={`chart-column${index === 0 ? ' chart-column--first' : ''}${
+                            index === resultBuckets.length - 1 ? ' chart-column--last' : ''
+                          }`}
+                          key={`${index}-${bucket.attempted}-${bucket.correct}`}
+                        >
+                          <span className="chart-value">{bucket.correct}</span>
+                          <div className="chart-track">
+                            <span
+                              className="chart-bar"
+                              style={{ height: `${(bucket.correct / chartMaximum) * 100}%` }}
+                            />
+                          </div>
+                          <span className="chart-time">
+                            {index * BUCKET_SECONDS}–{(index + 1) * BUCKET_SECONDS}s
+                          </span>
+                          <span className="chart-accuracy">{bucketAccuracy(bucket)}% acc.</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <p className="learning-explainer">
+                    Learning rate divides the last block’s correct-answer rate by the first block’s. 2.00× means twice
+                    as fast, 1.00× means unchanged, and less than 1.00× means slower. A dash means there was no correct
+                    first-block answer to use as a baseline.
+                  </p>
+                </section>
+              )}
               <p className="result-context">
                 {history.length === 1
                   ? 'Your first result is now your baseline.'
@@ -480,6 +618,7 @@ export default function SymbolSprint() {
               <div>
                 <span>Personal best</span>
                 <strong>{personalBest}</strong>
+                <small>{formatLearningRate(bestRun?.learningRate)} learning rate</small>
               </div>
               <div>
                 <span>Recent average</span>
@@ -498,6 +637,7 @@ export default function SymbolSprint() {
                     <th>Score</th>
                     <th>Accuracy</th>
                     <th>Pace</th>
+                    <th>Learning</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -507,6 +647,9 @@ export default function SymbolSprint() {
                       <td>{result.correct}</td>
                       <td>{result.accuracy}%</td>
                       <td>{(result.medianResponseMs / 1000).toFixed(2)}s</td>
+                      <td>
+                        {formatLearningRate(result.learningRate)}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
