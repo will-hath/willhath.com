@@ -16,7 +16,7 @@ export function getAboutContent() {
 </ul>
 <h4>now</h4>
 <ul>
-<li><del>on indefinite leave from MIT to work at OpenAI</del> back at MIT!</li>
+<li>tramping</li>
 </ul>
 <h4>smalltalk</h4>
 <ul>
@@ -28,7 +28,7 @@ export function getAboutContent() {
 <li>national parks</li>
 <li>blogging</li>
 <li>fighting the fun police</li>
-<li>history (pre 1800)</li>
+<li>history</li>
 <li>edm</li>
 </ul>
 <h4>bigtalk</h4>
@@ -46,7 +46,7 @@ export function getAboutContent() {
 <li>AI big</li>
 <li>AI soon</li>
 <li>extremes in moderation (a bimodal approach to life)</li>
-<li>lakes are made to be swam in</li>
+<li>lakes exist for swimming</li>
 </ul>
 `;
 }
